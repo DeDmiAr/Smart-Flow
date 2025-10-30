@@ -9,6 +9,17 @@
     --text-secondary: #A0A0B0;
     --card-bg: #161625;
     --border-color: rgba(255, 255, 255, 0.1);
+
+    /* Case Study Colors */
+    --case-purple: #9A17E8; /* Using secondary color */
+    --case-green: #00A8FF; /* Using primary color */
+    --case-orange: #FFA500;
+    --case-pink: #FF6347;
+
+    --case-purple-bg: rgba(154, 23, 232, 0.1); /* From --secondary-color */
+    --case-green-bg: rgba(0, 168, 255, 0.1); /* From --primary-color */
+    --case-orange-bg: rgba(255, 165, 0, 0.1);
+    --case-pink-bg: rgba(255, 99, 71, 0.1);
 }
 
 body {
@@ -44,7 +55,7 @@ header .container {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fff;
+    color: #C084FC;
     text-shadow: 0 0 10px var(--primary-color);
 }
 
@@ -72,7 +83,7 @@ nav a:hover {
 }
 
 .cta-button {
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background-color: #007BFF;
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -152,6 +163,7 @@ h2 {
 
 .problems li {
     background: var(--card-bg);
+    background-color: rgba(255, 0, 0, 0.1); /* Transparent red */
     padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -176,6 +188,7 @@ h2 {
 
 .service {
     background: var(--card-bg);
+    background-color: rgba(128, 0, 128, 0.1); /* Transparent purple */
     padding: 40px 20px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -242,6 +255,7 @@ h2 {
 .benefit {
     text-align: center;
     background: var(--card-bg);
+    background-color: rgba(0, 128, 0, 0.1); /* Transparent green */
     padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -258,22 +272,122 @@ h2 {
 
 .cases .case-studies {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted for responsiveness */
     gap: 40px;
 }
 
 .case {
-    background: var(--card-bg);
+    background: var(--card-bg); /* Default card background */
     padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
-    border-left: 5px solid var(--secondary-color);
+    display: flex; /* To arrange content */
+    flex-direction: column;
+    justify-content: space-between; /* Push metrics to bottom */
 }
 
 .case h3 {
     font-size: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--text-color); /* Default, will be overridden */
     margin-bottom: 15px;
+}
+
+/* Specific case styles */
+.case.internet-shop {
+    background-color: var(--case-purple-bg);
+    border-left: 5px solid var(--case-purple);
+}
+.case.internet-shop h3 {
+    color: var(--case-purple);
+}
+.case.internet-shop .metric-value {
+    color: var(--case-purple);
+}
+
+.case.services {
+    background-color: var(--case-green-bg);
+    border-left: 5px solid var(--case-green);
+}
+.case.services h3 {
+    color: var(--case-green);
+}
+.case.services .metric-value {
+    color: var(--case-green);
+}
+
+.case.production {
+    background-color: var(--case-orange-bg);
+    border-left: 5px solid var(--case-orange);
+}
+.case.production h3 {
+    color: var(--case-orange);
+}
+.case.production .metric-value {
+    color: var(--case-orange);
+}
+
+.case.retail {
+    background-color: var(--case-pink-bg);
+    border-left: 5px solid var(--case-pink);
+}
+.case.retail h3 {
+    color: var(--case-pink);
+}
+.case.retail .metric-value {
+    color: var(--case-pink);
+}
+
+.case-button {
+    background: transparent;
+    border: 1px solid;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: default; /* Not clickable */
+    margin-bottom: 15px;
+    align-self: flex-start; /* Align to start */
+}
+
+.case-button.purple {
+    color: #007BFF;
+    border-color: #007BFF;
+}
+.case-button.green {
+    color: #007BFF;
+    border-color: #007BFF;
+}
+.case-button.orange {
+    color: #007BFF;
+    border-color: #007BFF;
+}
+.case-button.pink {
+    color: #007BFF;
+    border-color: #007BFF;
+}
+
+.case-metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.metric-item {
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 .contact-form {
@@ -289,15 +403,15 @@ h2 {
     gap: 20px;
 }
 
-.contact-form input {
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    background: var(--light-bg);
-    color: var(--text-color);
-}
-
+    .contact-form input {
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: var(--light-bg);
+        color: var(--text-color);
+        z-index: 10;
+    }
 .contact-form input::placeholder {
     color: var(--text-secondary);
 }
@@ -480,6 +594,7 @@ footer a:hover {
 
     .main-nav.is-active {
         display: block;
+        z-index: 1001;
     }
 
     .main-nav ul {
@@ -499,8 +614,17 @@ footer a:hover {
         display: none; /* Optionally hide the CTA button in the header on mobile */
     }
 
+    .contact-form .cta-button {
+        display: block; /* Ensure the contact form button is visible on mobile */
+        width: 100%; /* Make it full width for better mobile experience */
+    }
+
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
     }
 
     .steps ol {

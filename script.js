@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', function () {
         mainNav.classList.toggle('is-active');
     });
 
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (mainNav.classList.contains('is-active')) {
+                hamburger.classList.remove('is-active');
+                mainNav.classList.remove('is-active');
+            }
+        });
+    });
+
     const form = document.querySelector('.contact-form form');
 
     form.addEventListener('submit', function (event) {
@@ -17,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const whatsapp = form.querySelector('input[name="whatsapp"]').value;
         const telegram = form.querySelector('input[name="telegram"]').value;
         const company = form.querySelector('input[name="company"]').value;
-
-        const botToken = '7722973835:AAHxR459EC5PlQANwEGzaIcY-ZLLyr_NEWA';
-        const chatId = '1306863122';
 
         // Get current date and time in Bishkek (UTC+6)
         const now = new Date();
@@ -47,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
             message += `🏢 Компания: ${company}\n`;
         }
         message += `\n⏰ Время: ${dateTimeString}`;
+
+        const botToken = '7722973835:AAHxR459EC5PlQANwEGzaIcY-ZLLyr_NEWA';
+        const chatId = '1306863122';
 
         const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
