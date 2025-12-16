@@ -27,7 +27,8 @@ body {
     line-height: 1.8;
     margin: 0;
     color: var(--text-color);
-    background-color: var(--dark-bg);
+    background-color: #050816; /* Fallback for older browsers */
+    background: linear-gradient(to bottom right, #050816, #0A2342);
 }
 
 .container {
@@ -57,6 +58,11 @@ header .container {
     font-weight: 700;
     color: #C084FC;
     text-shadow: 0 0 10px var(--primary-color);
+}
+
+.logo a, .logo a:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
 nav ul {
@@ -102,21 +108,9 @@ nav a:hover {
     color: #fff;
     padding: 120px 0;
     text-align: center;
-    background-size: cover;
-    background-position: center;
     position: relative;
     border-bottom: 1px solid var(--border-color);
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 1));
-    z-index: 1;
+    background: transparent;
 }
 
 .hero .container {
@@ -176,7 +170,7 @@ h2 {
 }
 
 .solution {
-    background: var(--light-bg);
+    background: transparent;
 }
 
 .solution .services {
@@ -267,7 +261,7 @@ h2 {
 }
 
 .cases {
-    background: var(--light-bg);
+    background: transparent;
 }
 
 .cases .case-studies {
@@ -392,7 +386,7 @@ h2 {
 
 .contact-form {
     text-align: center;
-    background: linear-gradient(180deg, var(--dark-bg), var(--light-bg));
+    background: transparent;
 }
 
 .contact-form form {
@@ -429,7 +423,7 @@ h2 {
 }
 
 .faq {
-    background: var(--light-bg);
+    background: transparent;
 }
 
 .faq-accordion {
@@ -661,3 +655,41 @@ footer a:hover {
         margin-top: 20px;
     }
 }
+
+.floating-back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Privacy Policy Styles */
+.privacy-policy {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.privacy-policy h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.privacy-policy h2 {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.privacy-policy p, .privacy-policy li {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.privacy-policy ul {
+    padding-left: 20px;
+}
+
