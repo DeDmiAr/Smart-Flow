@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
+            alert('Произошла ошибка. Попробуйте еще раз.');
         });
     });
 

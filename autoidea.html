@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Генератор идей автоматизации бизнеса | AutoIdea от smartflow.kg</title>
+    <meta name="description" content="Бесплатный генератор персонализированных идей для автоматизации бизнеса в Кыргызстане. Получите решения с использованием n8n, Make, Telegram. От smartflow.kg - экспертов по автоматизации." />
+    <meta name="keywords" content="автоматизация бизнеса Кыргызстан, генератор идей автоматизации, n8n, make, telegram bot, smartflow.kg, идеи автоматизации Бишкек, бизнес процессы" />
+    <meta name="author" content="smartflow.kg" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://smartflow.kg/autoidea.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smartflow.kg/autoidea.html" />
+    <meta property="og:title" content="Генератор идей автоматизации бизнеса | smartflow.kg" />
+    <meta property="og:description" content="Получите персонализированные идеи для автоматизации вашего бизнеса. n8n, Make, Telegram и другие инструменты. Бесплатно от smartflow.kg" />
+    <meta property="og:image" content="https://smartflow.kg/images/og-smart-flow.jpg" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="smartflow.kg" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://smartflow.kg/autoidea.html" />
+    <meta name="twitter:title" content="Генератор идей автоматизации бизнеса | smartflow.kg" />
+    <meta name="twitter:description" content="Получите персонализированные идеи для автоматизации вашего бизнеса. n8n, Make, Telegram. От экспертов smartflow.kg" />
+    <meta name="twitter:image" content="https://smartflow.kg/images/og-smart-flow.jpg" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#8B5CF6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Конфигурация Tailwind -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              light: {
+                bg: '#F3F4F6', card: '#FFFFFF', text: '#111827', textSecondary: '#6B7280',
+                primary: '#6D28D9', primaryLight: '#8B5CF6', border: '#E5E7EB',
+                danger: '#EF4444', success: '#10B981',
+              },
+              dark: {
+                bg: '#111827', card: '#1F2937', text: '#F9FAFB', textSecondary: '#9CA3AF',
+                primary: '#8B5CF6', primaryLight: '#A78BFA', border: '#374151',
+                danger: '#F87171', success: '#34D399',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Иконочный шрифт (Lucide) -->
+    <script src="https://unpkg.com/lucide@0.395.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+      .modal-backdrop { transition: opacity 0.3s ease; }
+      .modal-content { transition: transform 0.3s ease; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.5); border-radius: 3px; }
+    </style>
+  </head>
+  <body class="bg-gradient-to-b from-light-bg to-white dark:from-dark-bg dark:to-gray-900 min-h-screen">
+    
+    <div class="w-full max-w-4xl mx-auto px-4 py-6">
+      <!-- Минимальная брендовая шапка -->
+      <div class="mb-4 pb-3 border-b border-light-border/50 dark:border-dark-border/50">
+        <a href="/" class="inline-flex items-center gap-2 text-sm hover:opacity-80 transition-opacity group">
+          <svg class="w-4 h-4 transition-colors" style="color: #6B7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          <img src="images/logo.png" alt="SMART flow logo" style="height: 20px; vertical-align: middle;">
+          <span style="font-size: 1rem; font-weight: 600; color: #9A17E8; text-decoration: none; transition: opacity 0.2s;">smartflow.kg</span>
+        </a>
+      </div>
+      
+      <!-- Верхняя навигация -->
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-6">
+          <div>
+            <h1 class="text-2xl font-bold text-light-text dark:text-dark-text">AutoIdea</h1>
+            <p class="text-sm text-light-textSecondary dark:text-dark-textSecondary mt-0.5">Генератор идей автоматизации</p>
+          </div>
+        </div>
+        <a id="header-my-ideas-link" href="my-ideas.html" class="flex items-center gap-2 px-4 py-2 bg-light-primary dark:bg-dark-primary text-white rounded-lg hover:opacity-90 transition-opacity">
+          <i data-lucide="bookmark" style="width:20px;height:20px;"></i>
+          <span>Мои идеи</span>
+        </a>
+      </div>
+      
+      <div id="screen-container" class="relative">
+
+        <div id="content-card" class="relative transition-colors duration-300">
+          
+          <!-- 1. ФОРМА -->
+          <div id="form-view" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-light-border/50 dark:border-dark-border/50">
+            <div class="mb-6">
+              <h2 class="text-2xl font-bold mb-2 text-light-text dark:text-dark-text" data-i18n="form_title">Создайте идею автоматизации</h2>
+              <p class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_subtitle">Заполните форму, чтобы получить персональные решения</p>
+            </div>
+            <div class="space-y-4">
+
+              <!-- Поля формы -->
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_role">Кто вы?</p>
+                <button id="picker-role" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_sphere">Сфера деятельности</p>
+                <button id="picker-sphere" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_team_size">Размер команды</p>
+                <button id="picker-teamSize" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_tech_level">Техническая подготовка</p>
+                <button id="picker-techLevel" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_budget">Бюджет</p>
+                <button id="picker-budget" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_problems">Какие проблемы хотите решить?</p>
+                <button id="picker-problems" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+                <div id="tags-problems" class="flex flex-row flex-wrap mt-2"></div>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_channels">Каналы работы с клиентами</p>
+                <button id="picker-channels" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+                <div id="tags-channels" class="flex flex-row flex-wrap mt-2"></div>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-sm font-medium mb-1 text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_tools">Используемые инструменты</p>
+                <button id="picker-tools" class="w-full flex items-center justify-between p-4 rounded-lg border bg-light-card dark:bg-dark-card border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-colors">
+                  <span class="text-base text-light-textSecondary dark:text-dark-textSecondary" data-i18n="form_please_select">Выберите...</span>
+                  <i data-lucide="chevron-down" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+                </button>
+                <div id="tags-tools" class="flex flex-row flex-wrap mt-2"></div>
+              </div>
+
+              <p id="validation-error" class="text-center my-2 text-light-danger dark:text-dark-danger hidden"></p>
+              <p id="api-error" class="text-center my-2 text-light-danger dark:text-dark-danger hidden"></p>
+              
+              <div class="mb-4 bg-light-bg dark:bg-dark-bg p-4 rounded-xl border border-light-border/50 dark:border-dark-border/50">
+                <p class="text-sm font-medium mb-2 text-light-textSecondary dark:text-dark-textSecondary">
+                  Ваш контакт (необязательно) 💬
+                </p>
+                <p class="text-xs text-light-textSecondary dark:text-dark-textSecondary mb-3 opacity-80">
+                  Оставьте контакт, если хотите получить персональную консультацию
+                </p>
+                
+                <div class="mb-3">
+                  <label class="text-xs text-light-textSecondary dark:text-dark-textSecondary mb-1 block">Способ связи:</label>
+                  <div class="flex gap-2">
+                    <button type="button" id="contact-type-phone" class="contact-type-btn flex-1 py-2 px-3 rounded-lg border-2 bg-white dark:bg-gray-800 border-light-border dark:border-dark-border text-sm transition-all hover:border-light-primary dark:hover:border-dark-primary text-light-text dark:text-dark-text font-medium">
+                      📱 Телефон
+                    </button>
+                    <button type="button" id="contact-type-whatsapp" class="contact-type-btn flex-1 py-2 px-3 rounded-lg border-2 bg-white dark:bg-gray-800 border-light-border dark:border-dark-border text-sm transition-all hover:border-light-primary dark:hover:border-dark-primary text-light-text dark:text-dark-text font-medium">
+                      💚 WhatsApp
+                    </button>
+                    <button type="button" id="contact-type-telegram" class="contact-type-btn flex-1 py-2 px-3 rounded-lg border-2 bg-white dark:bg-gray-800 border-light-border dark:border-dark-border text-sm transition-all hover:border-light-primary dark:hover:border-dark-primary text-light-text dark:text-dark-text font-medium">
+                      ✈️ Telegram
+                    </button>
+                  </div>
+                </div>
+                
+                <input 
+                  type="text" 
+                  id="user-contact" 
+                  class="w-full px-4 py-3 rounded-lg border bg-white dark:bg-gray-900 border-light-border dark:border-dark-border text-light-text dark:text-dark-text focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary outline-none transition-all"
+                  placeholder="Выберите способ связи"
+                  disabled
+                />
+              </div>
+            </div>
+
+            <!-- Кнопки формы -->
+            <div class="mt-6 pt-6 border-t border-light-border dark:border-dark-border space-y-3">
+              <button id="generate-button" class="w-full py-4 rounded-lg transition-all duration-200 font-semibold text-lg bg-light-primary dark:bg-dark-primary text-white disabled:bg-light-border disabled:dark:bg-dark-border/50 disabled:text-light-textSecondary disabled:dark:text-dark-textSecondary hover:opacity-90" disabled>
+                <span data-i18n="form_generate_button">✨ Сгенерировать Идеи</span>
+              </button>
+              <button id="clear-button" class="w-full py-2">
+                <span class="text-center text-light-textSecondary dark:text-dark-textSecondary hover:text-light-primary dark:hover:text-dark-primary transition-colors" data-i18n="form_clear_button">Очистить форму</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. ЗАГРУЗКА -->
+          <div id="loading-view" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-12 border border-light-border/50 dark:border-dark-border/50 text-center hidden">
+            <div class="w-16 h-16 border-4 border-t-transparent rounded-full animate-spin border-light-primary dark:border-dark-primary mb-6 mx-auto"></div>
+            <p class="text-xl font-semibold text-light-text dark:text-dark-text" data-i18n="form_generating">✨ Генерация идей...</p>
+            <p class="text-sm text-light-textSecondary dark:text-dark-textSecondary mt-2">Используем: n8n, Make, Telegram</p>
+            <p id="loading-context" class="text-base text-center mt-2 text-light-textSecondary dark:text-dark-textSecondary italic opacity-80"></p>
+          </div>
+
+          <!-- 3. РЕЗУЛЬТАТЫ -->
+          <div id="results-view" class="hidden">
+            <div class="flex items-center justify-between mb-6">
+              <a href="my-ideas.html" class="flex items-center gap-2 px-4 py-2 bg-light-primary dark:bg-dark-primary text-white rounded-lg hover:opacity-90 transition-opacity">
+                <i data-lucide="bookmark" style="width:18px;height:18px;"></i>
+                <span>Мои идеи</span>
+              </a>
+              <button id="new-idea-button" class="flex items-center gap-2 px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-lg hover:opacity-90 transition-opacity">
+                <i data-lucide="plus-circle" style="width:18px;height:18px;"></i>
+                <span>Новая идея</span>
+              </button>
+            </div>
+            <div id="idea-card-container" class="mb-6"></div>
+            <div id="results-controls" class="flex flex-row justify-center items-center gap-4">
+              <button id="results-close-button" class="w-16 h-16 rounded-full flex items-center justify-center bg-light-border dark:bg-dark-border hover:opacity-80 transition-opacity">
+                <i data-lucide="x" class="text-light-textSecondary dark:text-dark-textSecondary" style="width: 28px; height: 28px"></i>
+              </button>
+              <button id="results-save-button" class="w-20 h-20 rounded-full flex items-center justify-center bg-light-primary dark:bg-dark-primary shadow-lg hover:scale-105 transition-transform">
+                <i data-lucide="save" class="text-white" style="width: 32px; height: 32px"></i>
+              </button>
+              <button id="results-next-button" class="w-16 h-16 rounded-full flex items-center justify-center bg-light-border dark:bg-dark-border hover:opacity-80 transition-opacity">
+                <i data-lucide="chevron-right" class="text-light-textSecondary dark:text-dark-textSecondary" style="width: 28px; height: 28px"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="single-select-modal" class="fixed inset-0 z-50 flex justify-center items-end bg-black/60 opacity-0 pointer-events-none modal-backdrop backdrop-blur-sm">
+      <div class="w-full max-w-md rounded-t-2xl pt-4 shadow-2xl bg-light-card dark:bg-dark-card transform translate-y-full modal-content" style="max-height: 60%">
+        <div class="flex justify-between items-center px-4 pb-3 border-b border-light-border dark:border-dark-border">
+          <p id="single-select-title" class="text-lg font-bold text-light-text dark:text-dark-text"></p>
+          <button id="single-select-close"><i data-lucide="x" class="text-light-textSecondary dark:text-dark-textSecondary"></i></button>
+        </div>
+        <div id="single-select-options" class="overflow-y-auto" style="max-height: calc(60vh - 60px)"></div>
+      </div>
+    </div>
+
+    <div id="multi-select-modal" class="fixed inset-0 z-50 bg-light-bg dark:bg-dark-bg opacity-0 pointer-events-none modal-backdrop w-full max-w-md mx-auto" style="display: none;">
+      <div class="h-full flex flex-col">
+        <div class="pt-6 bg-light-card dark:bg-dark-card shadow-md z-10 flex-shrink-0">
+          <div class="flex justify-between items-center p-4 border-b border-light-border dark:border-dark-border">
+            <button id="multi-select-cancel"><span class="text-base text-light-primary dark:text-dark-primary" data-i18n="cancel">Отмена</span></button>
+            <p id="multi-select-title" class="text-lg font-bold text-light-text dark:text-dark-text"></p>
+            <button id="multi-select-save"><span class="text-base font-bold text-light-primary dark:text-dark-primary" data-i18n="save">Сохранить</span></button>
+          </div>
+        </div>
+        <div id="multi-select-options" class="overflow-y-auto flex-1 bg-light-bg dark:bg-dark-bg p-2"></div>
+      </div>
+    </div>
+
+    <div id="idea-detail-modal" class="fixed inset-0 z-50 bg-light-bg dark:bg-dark-bg opacity-0 pointer-events-none modal-backdrop w-full max-w-md mx-auto" style="display: none;">
+      <div class="h-full flex flex-col">
+        <div class="pt-6 bg-light-card dark:bg-dark-card shadow-md z-20 flex-shrink-0">
+          <div class="flex justify-between items-center p-4 border-b border-light-border dark:border-dark-border">
+            <button id="detail-modal-close" class="hover:opacity-70 transition-opacity z-30"><i data-lucide="x" class="text-light-primary dark:text-dark-primary"></i></button>
+            <p id="detail-modal-header-title" class="text-lg font-bold flex-1 mx-4 truncate text-light-text dark:text-dark-text text-center"></p>
+            <button id="detail-modal-share" class="hover:opacity-70 transition-opacity z-30"><i data-lucide="share-2" class="text-light-primary dark:text-dark-primary"></i></button>
+          </div>
+        </div>
+        <div id="detail-modal-content" class="overflow-y-auto p-5 pb-10 flex-1"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      const I18N_STRINGS = {
+        ru: {
+          form_title: 'Генератор Идей', form_subtitle: 'Заполните форму для автоматизации через n8n, Make или Telegram',
+          form_role: 'Кто вы?', form_sphere: 'Сфера деятельности', form_problems: 'Какие проблемы хотите решить?',
+          form_teamSize: 'Размер команды', form_channels: 'Каналы работы с клиентами', form_tools: 'Используемые инструменты',
+          form_techLevel: 'Техническая подготовка', form_budget: 'Бюджет',
+          form_generate_button: 'Сгенерировать Идеи', form_clear_button: 'Очистить форму',
+          form_please_select: 'Выберите...', form_selected_multiple: 'Выбрано ({count})',
+          form_validation_error: 'Пожалуйста, заполните все обязательные поля', form_generating: '✨ Генерация идей...',
+          gemini_error: 'Ошибка: {error}',
+          
+          role_options: ['Руководитель компании', 'Владелец бизнеса', 'Предприниматель', 'Менеджер', 'Продакт-менеджер', 'Проектный менеджер', 'Специалист', 'HR-специалист', 'Аналитик', 'IT-специалист', 'Маркетолог', 'Фрилансер', 'Самозанятый', 'Другое'],
+          sphere_options: ['Интернет-магазины', 'Услуги для бизнеса', 'Консалтинг', 'Дизайн и иллюстрация', 'Образовательные проекты', 'Event-агентства', 'Медицина и здоровье', 'Недвижимость', 'Строительство и ремонт', 'Маркетинговые агентства', 'IT-компании', 'Производство', 'Общественное питание', 'Красота и фитнес', 'Туризм и развлечения', 'Медиа и развлечения', 'Транспорт и логистика', 'Финансы и страхование', 'Юридические услуги', 'Сельское хозяйство', 'Другое'],
+          problems_options: ['Снижение временных затрат', 'Автоматизация рутинных задач', 'Оптимизация коммуникаций', 'Улучшение управления проектами', 'Централизация данных', 'Аналитика и отчётность', 'Улучшение клиентского сервиса', 'Повышение продаж', 'Снижение количества ошибок', 'Автоматизация маркетинга', 'Другое'],
+          teamSize_options: ['Я один', '2-5 человек', '6-15', '16-30', '31-50', '51-100 человек', 'более 100 человек', 'Другое'],
+          channels_options: ['Телефонные звонки', 'Email', 'Мессенджеры (Telegram, WhatsApp)', 'Социальные сети', 'Веб-сайт', 'Онлайн-чат', 'Маркетплейсы (Ozon, Wildberries)', 'Партнерские сети', 'Физические точки продаж', 'Личные встречи', 'Видеоконференции', 'Другое'],
+          tools_options: ['Битрикс24', 'AmoCRM', 'Salesforce', 'HubSpot', '1С', 'МойСклад', 'Google Таблицы', 'Excel', 'Trello', 'Asana', 'Jira', 'Notion', 'WordPress', 'Tilda', 'Miro', 'Figma', 'Slack', 'Discord', 'Zoom', 'GetCourse', 'Telegram-каналы', 'VK (ВКонтакте)', 'Instagram', 'Не использую инструменты', 'Другое'],
+          techLevel_options: ['Новичок', 'Уверенный пользователь ПК', 'Продвинутый (знаю про API, могу настроить интеграцию)', 'Эксперт (могу писать код/скрипты)'],
+          budget_options: ['Нулевой (ищу бесплатные решения)', 'Низкий (до $100)', 'Средний ($100 - $500)', 'Высокий ($500 - $2000)', 'Корпоративный (более $2000)'],
+          
+          results_close: 'Закрыть', results_save: 'Сохранить', results_next: 'Следующая', results_no_more_ideas: 'Идей больше нет',
+          results_back_to_form: 'Вернуться к форме', idea_difficulty: 'Сложность', idea_budget_approx: 'Бюджет', idea_tools: 'Инструменты',
+          gemini_plan_button: '✨ Сгенерировать План Внедрения', gemini_plan_loading: 'Разрабатываем план...', gemini_plan_title: 'План Внедрения',
+          my_ideas_saved: 'Идея сохранена!', my_ideas_removed: 'Идея удалена', save: 'Сохранить', close: 'Закрыть', select: 'Выбрать', cancel: 'Отмена',
+        }
+      };
+
+      let state = { role: null, sphere: null, problems: [], teamSize: null, channels: [], tools: [], techLevel: null, budget: null, contactType: null, contact: null };
+      let currentLang = 'ru';
+      let savedIdeas = [];
+      let generatedIdeas = [];
+      let currentIndex = 0;
+      let modalState = { key: null, tempSelection: null };
+      let dom = {};
+
+      function t(key, params = {}) {
+        let str = I18N_STRINGS[currentLang][key] || key;
+        Object.keys(params).forEach(k => str = str.replace(`{${k}}`, params[k]));
+        return str;
+      }
+
+      function updateFormPickers() {
+        for (const key in state) {
+          const el = dom.pickers[key];
+          if (!el) continue;
+          const value = state[key];
+          const span = el.querySelector('span');
+          const isFilled = (Array.isArray(value) && value.length > 0) || (typeof value === 'string' && value);
+          
+          if (Array.isArray(value) && value.length > 0) {
+            span.innerText = t('form_selected_multiple', { count: value.length });
+          } else if (typeof value === 'string' && value) {
+            span.innerText = value;
+          } else {
+            span.innerText = t('form_please_select');
+          }
+          
+          if (isFilled) {
+            span.classList.remove('text-light-textSecondary', 'dark:text-dark-textSecondary');
+            span.classList.add('text-light-text', 'dark:text-dark-text', 'font-medium');
+            el.classList.add('border-light-primary', 'dark:border-dark-primary');
+          } else {
+            span.classList.add('text-light-textSecondary', 'dark:text-dark-textSecondary');
+            span.classList.remove('text-light-text', 'dark:text-dark-text', 'font-medium');
+            el.classList.remove('border-light-primary', 'dark:border-dark-primary');
+          }
+        }
+      }
+
+      function updateTagList(key) {
+        const container = dom.tags[key];
+        const items = state[key];
+        if (!container) return;
+        container.innerHTML = '';
+        items.forEach(item => {
+          const tag = document.createElement('div');
+          tag.className = "flex flex-row items-center rounded-full py-1 px-3 mr-2 mb-2 bg-light-primaryLight/20 dark:bg-dark-primaryLight/20 border border-light-primaryLight/30 dark:border-dark-primaryLight/30";
+          tag.innerHTML = `<span class="text-xs font-semibold text-light-primary dark:text-dark-primary">${item}</span><button class="ml-2 hover:text-red-500 transition-colors"><i data-lucide="x" style="width:12px;height:12px;"></i></button>`;
+          tag.querySelector('button').onclick = (e) => {
+             e.stopPropagation();
+             state[key] = state[key].filter(i => i !== item);
+             updateTagList(key);
+             validateForm();
+          };
+          container.appendChild(tag);
+        });
+        lucide.createIcons();
+      }
+
+      function validateForm() {
+        const required = ['role', 'sphere', 'teamSize', 'techLevel', 'budget'];
+        let isValid = required.every(k => state[k]) && state.problems.length > 0 && state.channels.length > 0 && state.tools.length > 0;
+        dom.generateButton.disabled = !isValid;
+        return isValid;
+      }
+
+      function clearForm() {
+        state = { role: null, sphere: null, problems: [], teamSize: null, channels: [], tools: [], techLevel: null, budget: null };
+        updateFormPickers();
+        ['problems', 'channels', 'tools'].forEach(k => updateTagList(k));
+        validateForm();
+        dom.apiError.classList.add('hidden');
+      }
+
+      function showView(viewName) {
+        ['formView', 'loadingView', 'resultsView'].forEach(v => dom[v].classList.add('hidden'));
+        
+        const headerMyIdeasLink = document.getElementById('header-my-ideas-link');
+        
+        if (viewName === 'form') {
+          dom.formView.classList.remove('hidden');
+          if (headerMyIdeasLink) headerMyIdeasLink.classList.remove('hidden');
+        } else if (viewName === 'loading') {
+          dom.loadingView.classList.remove('hidden');
+          if (headerMyIdeasLink) headerMyIdeasLink.classList.remove('hidden');
+        } else if (viewName === 'results') {
+          dom.resultsView.classList.remove('hidden');
+          // Скрываем кнопку "Мои идеи" в шапке на экране результатов
+          if (headerMyIdeasLink) headerMyIdeasLink.classList.add('hidden');
+        }
+      }
+
+      function openModal(modal) {
+        modal.classList.remove('pointer-events-none', 'opacity-0');
+        modal.classList.add('opacity-100');
+        // Для модального окна с .modal-content (single-select)
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.classList.remove('translate-y-full');
+        } else {
+          // Для полноэкранных модальных окон (multi-select, detail)
+          modal.style.display = 'flex';
+        }
+        
+        // Добавляем обработчик клика на фон для закрытия
+        modal.onclick = (e) => {
+          // Проверяем что клик был на самом backdrop, а не на содержимом
+          if (e.target === modal) {
+            closeModal(modal);
+          }
+        };
+        
+        // Для модальных окон с .modal-content добавляем отдельный обработчик
+        if (modalContent) {
+          modal.onclick = (e) => {
+            if (e.target === modal || (!modalContent.contains(e.target))) {
+              closeModal(modal);
+            }
+          };
+        }
+      }
+
+      function closeModal(modal) {
+        modal.classList.add('pointer-events-none', 'opacity-0');
+        modal.classList.remove('opacity-100');
+        // Для модального окна с .modal-content (single-select)
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.classList.add('translate-y-full');
+        } else {
+          // Для полноэкранных модальных окон
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 300);
+        }
+      }
+
+      function openSingleSelectModal(key) {
+        modalState.key = key;
+        const options = I18N_STRINGS[currentLang][`${key}_options`] || [];
+        dom.singleSelectTitle.innerText = t(`form_${key}`);
+        dom.singleSelectOptions.innerHTML = '';
+        
+        options.forEach(opt => {
+          const btn = document.createElement('button');
+          const isSelected = state[key] === opt;
+          btn.className = `w-full text-left p-4 flex items-center justify-between border-b border-light-border/50 dark:border-dark-border/50 hover:bg-light-bg dark:hover:bg-dark-bg transition-colors ${isSelected ? 'bg-light-primaryLight/10 dark:bg-dark-primaryLight/10' : ''}`;
+          btn.innerHTML = `<span class="text-base ${isSelected ? 'font-bold text-light-primary dark:text-dark-primary' : 'text-light-text dark:text-dark-text'}">${opt}</span>${isSelected ? '<i data-lucide="check" class="text-light-primary dark:text-dark-primary"></i>' : ''}`;
+          btn.onclick = () => {
+            state[key] = opt;
+            updateFormPickers();
+            validateForm();
+            closeModal(dom.singleSelectModal);
+          };
+          dom.singleSelectOptions.appendChild(btn);
+        });
+        lucide.createIcons();
+        openModal(dom.singleSelectModal);
+      }
+
+      function renderMultiSelectOptions(key) {
+        const options = I18N_STRINGS[currentLang][`${key}_options`] || [];
+        dom.multiSelectTitle.innerText = t(`form_${key}`);
+        dom.multiSelectOptions.innerHTML = '';
+        
+        options.forEach(opt => {
+          const isSelected = modalState.tempSelection.includes(opt);
+          const btn = document.createElement('button');
+          btn.className = 'w-full text-left p-4 flex items-center justify-between border-b border-light-border/50 dark:border-dark-border/50 hover:bg-light-bg dark:hover:bg-dark-bg transition-colors';
+          btn.innerHTML = `<span class="text-base ${isSelected ? 'font-bold text-light-primary dark:text-dark-primary' : 'text-light-text dark:text-dark-text'}">${opt}</span><div class="w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? 'bg-light-primary border-light-primary dark:bg-dark-primary dark:border-dark-primary scale-110' : 'border-light-textSecondary dark:border-dark-textSecondary'}">${isSelected ? '<i data-lucide="check" class="text-white" style="width:14px;height:14px;"></i>' : ''}</div>`;
+          btn.onclick = () => {
+            modalState.tempSelection = isSelected ? modalState.tempSelection.filter(i => i !== opt) : [...modalState.tempSelection, opt];
+            renderMultiSelectOptions(key);
+          };
+          dom.multiSelectOptions.appendChild(btn);
+        });
+        lucide.createIcons();
+      }
+
+      function openMultiSelectModal(key) {
+        modalState.key = key;
+        modalState.tempSelection = [...state[key]];
+        renderMultiSelectOptions(key);
+        openModal(dom.multiSelectModal);
+      }
+
+      // База данных идей автоматизации
+      const IDEAS_DATABASE = {
+        // Общие идеи для всех сфер
+        universal: [
+          {
+            title: "Автоматизация обработки заявок из форм",
+            description: "Автоматическая обработка заявок с вашего сайта или форм с отправкой уведомлений в Telegram и сохранением в Google Таблицы.",
+            difficulty: "Низкая",
+            budget: "до $100",
+            tools: ["n8n", "Telegram", "Google Таблицы"],
+            problems: ["Снижение временных затрат", "Автоматизация рутинных задач", "Централизация данных"],
+            channels: ["Веб-сайт", "Мессенджеры (Telegram, WhatsApp)"]
+          },
+          {
+            title: "Telegram-бот для сбора обратной связи",
+            description: "Интерактивный бот для автоматического сбора отзывов клиентов с последующей аналитикой и уведомлениями.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Telegram", "n8n", "Google Таблицы"],
+            problems: ["Улучшение клиентского сервиса", "Централизация данных", "Аналитика и отчётность"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)"]
+          },
+          {
+            title: "Автоматизация рассылки в мессенджерах",
+            description: "Настройка автоматических персонализированных рассылок для разных сегментов клиентов через Telegram или WhatsApp.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Make", "Telegram", "WhatsApp"],
+            problems: ["Автоматизация маркетинга", "Улучшение клиентского сервиса", "Повышение продаж"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)", "Социальные сети"]
+          }
+        ],
+        
+        // Идеи по сферам деятельности
+        "Интернет-магазины": [
+          {
+            title: "Автоматизация обработки заказов с маркетплейсов",
+            description: "Автоматический импорт заказов с Ozon и Wildberries в вашу CRM с уведомлениями в Telegram.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["n8n", "Telegram", "Битрикс24"],
+            problems: ["Централизация данных", "Снижение временных затрат", "Снижение количества ошибок"],
+            channels: ["Маркетплейсы (Ozon, Wildberries)"]
+          },
+          {
+            title: "Telegram-бот для отслеживания заказов",
+            description: "Клиенты могут автоматически узнать статус заказа через чат-бот, снижая нагрузку на поддержку.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Telegram", "Make", "1С"],
+            problems: ["Улучшение клиентского сервиса", "Снижение временных затрат"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)"]
+          }
+        ],
+        
+        "IT-компании": [
+          {
+            title: "Автоматизация управления задачами",
+            description: "Интеграция Jira с Telegram для мгновенных уведомлений о новых задачах и их изменениях.",
+            difficulty: "Низкая",
+            budget: "до $100",
+            tools: ["n8n", "Jira", "Telegram"],
+            problems: ["Оптимизация коммуникаций", "Улучшение управления проектами"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)"]
+          },
+          {
+            title: "Бот для автоматизации daily-встреч",
+            description: "Telegram-бот собирает ежедневные отчеты от команды и формирует сводку для руководителя.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Telegram", "n8n", "Google Таблицы"],
+            problems: ["Оптимизация коммуникаций", "Снижение временных затрат", "Централизация данных"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)", "Slack"]
+          }
+        ],
+        
+        "Образовательные проекты": [
+          {
+            title: "Автоматизация регистрации на курсы",
+            description: "Автоматическая обработка заявок на обучение с отправкой приветственных писем и добавлением в группы.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Make", "Telegram", "GetCourse"],
+            problems: ["Автоматизация рутинных задач", "Улучшение клиентского сервиса"],
+            channels: ["Веб-сайт", "Мессенджеры (Telegram, WhatsApp)"]
+          },
+          {
+            title: "Бот-помощник для студентов",
+            description: "Telegram-бот для ответов на частые вопросы студентов и напоминаний о занятиях.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Telegram", "n8n"],
+            problems: ["Улучшение клиентского сервиса", "Снижение временных затрат"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)"]
+          }
+        ],
+        
+        "Маркетинговые агентства": [
+          {
+            title: "Автоматизация отчетов для клиентов",
+            description: "Автоматическое создание и отправка еженедельных отчетов о рекламных кампаниях клиентам.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["Make", "Google Таблицы", "Email"],
+            problems: ["Автоматизация рутинных задач", "Аналитика и отчётность", "Снижение временных затрат"],
+            channels: ["Email", "Мессенджеры (Telegram, WhatsApp)"]
+          }
+        ],
+        
+        "Услуги для бизнеса": [
+          {
+            title: "CRM-интеграция с мессенджерами",
+            description: "Автоматическое создание сделок в CRM при получении сообщений от клиентов в Telegram или WhatsApp.",
+            difficulty: "Средняя",
+            budget: "$100 - $500",
+            tools: ["n8n", "AmoCRM", "Telegram"],
+            problems: ["Централизация данных", "Снижение количества ошибок", "Оптимизация коммуникаций"],
+            channels: ["Мессенджеры (Telegram, WhatsApp)"]
+          }
+        ]
+      };
+
+      function generateIdeasAlgorithmically(userState) {
+        const allIdeas = [];
+        
+        // Добавляем универсальные идеи
+        allIdeas.push(...IDEAS_DATABASE.universal);
+        
+        // Добавляем идеи по сфере деятельности
+        if (userState.sphere && IDEAS_DATABASE[userState.sphere]) {
+          allIdeas.push(...IDEAS_DATABASE[userState.sphere]);
+        }
+        
+        // Фильтруем идеи по проблемам и каналам пользователя
+        let filteredIdeas = allIdeas.filter(idea => {
+          // Проверяем совпадение проблем
+          const problemMatch = idea.problems.some(p => userState.problems.includes(p));
+          // Проверяем совпадение каналов
+          const channelMatch = idea.channels.some(c => userState.channels.includes(c));
+          
+          return problemMatch || channelMatch;
+        });
+        
+        // Если после фильтрации мало идей, добавляем универсальные
+        if (filteredIdeas.length < 3) {
+          filteredIdeas = [...filteredIdeas, ...IDEAS_DATABASE.universal];
+        }
+        
+        // Удаляем дубликаты
+        filteredIdeas = Array.from(new Set(filteredIdeas.map(i => JSON.stringify(i)))).map(i => JSON.parse(i));
+        
+        // Сортируем по релевантности (количество совпадений)
+        filteredIdeas = filteredIdeas.sort((a, b) => {
+          const aScore = (a.problems.filter(p => userState.problems.includes(p)).length * 2) +
+                         (a.channels.filter(c => userState.channels.includes(c)).length);
+          const bScore = (b.problems.filter(p => userState.problems.includes(p)).length * 2) +
+                         (b.channels.filter(c => userState.channels.includes(c)).length);
+          return bScore - aScore;
+        });
+        
+        // Возвращаем топ-5 идей
+        return filteredIdeas.slice(0, 5).map(idea => ({
+          ...idea,
+          id: Math.random().toString(36).substr(2, 9)
+        }));
+      }
+
+      async function handleGenerateIdeas() {
+        if (!validateForm()) return;
+        
+        dom.loadingContext.innerText = `${state.role} • ${state.sphere}`;
+        showView('loading');
+        
+        // Имитация задержки для лучшего UX
+        setTimeout(() => {
+          try {
+            // Генерируем идеи алгоритмически
+            const ideas = generateIdeasAlgorithmically(state);
+            
+            if (ideas.length === 0) {
+              throw new Error("Не удалось подобрать идеи. Попробуйте изменить параметры.");
+            }
+            
+            generatedIdeas = ideas;
+            currentIndex = 0;
+            
+            // Отправляем данные в Telegram
+            sendFormDataToTelegram(state);
+            
+            renderResults();
+            showView('results');
+          } catch (e) {
+            console.error(e);
+            dom.apiError.innerText = `Ошибка: ${e.message}`;
+            dom.apiError.classList.remove('hidden');
+            showView('form');
+          }
+        }, 1500);
+      }
+      
+      // Функция отправки данных в Telegram
+      async function sendFormDataToTelegram(formData) {
+        // Отправляем только если указан контакт
+        if (!formData.contact || !formData.contactType) {
+          console.log("Контакт не указан. Уведомление в Telegram не отправлено.");
+          return;
+        }
+        
+        // Настроенный Telegram бот
+        const BOT_TOKEN = "7722973835:AAHxR459EC5PlQANwEGzaIcY-ZLLyr_NEWA";
+        const CHAT_ID = "1306863122";
+        
+        if (BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || CHAT_ID === "YOUR_CHAT_ID_HERE") {
+          console.warn("Telegram bot не настроен. Данные не отправлены.");
+          return;
+        }
+        
+        // Формируем контактную информацию
+        const contactLabels = {
+          'phone': '📱 Телефон',
+          'whatsapp': '💚 WhatsApp',
+          'telegram': '✈️ Telegram'
+        };
+        const contactInfo = `\n\n📞 КОНТАКТ ДЛЯ СВЯЗИ:\n${contactLabels[formData.contactType]}: ${formData.contact}`;
+        
+        const message = `
+🆕 Новая заявка из AutoIdea!
+
+👤 Роль: ${formData.role}
+🏢 Сфера: ${formData.sphere}
+👥 Размер команды: ${formData.teamSize}
+💻 Технический уровень: ${formData.techLevel}
+💰 Бюджет: ${formData.budget}${contactInfo}
+
+❗ Проблемы:
+${formData.problems.map(p => `• ${p}`).join('\n')}
+
+📢 Каналы:
+${formData.channels.map(c => `• ${c}`).join('\n')}
+
+🛠 Инструменты:
+${formData.tools.map(t => `• ${t}`).join('\n')}
+
+⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+        `.trim();
+        
+        try {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: message,
+              parse_mode: 'HTML'
+            })
+          });
+          console.log("Данные успешно отправлены в Telegram");
+        } catch (e) {
+          console.error("Ошибка отправки в Telegram:", e);
+        }
+      }
+
+      function renderResults() {
+        const container = dom.ideaCardContainer;
+        if (currentIndex >= generatedIdeas.length) {
+          container.innerHTML = `<div class="text-center"><h2 class="text-2xl font-bold text-light-text dark:text-dark-text mb-4">Идеи закончились</h2><button onclick="document.getElementById('results-close-button').click()" class="px-6 py-3 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-semibold">В начало</button></div>`;
+          dom.resultsControls.classList.add('opacity-0', 'pointer-events-none');
+          return;
+        }
+        
+        dom.resultsControls.classList.remove('opacity-0', 'pointer-events-none');
+        const idea = generatedIdeas[currentIndex];
+        const isSaved = savedIdeas.some(i => i.id === idea.id);
+        
+        // Обновляем кнопку сохранения визуально
+        const saveBtn = document.getElementById('results-save-button');
+        if (saveBtn) {
+            if (isSaved) {
+                saveBtn.classList.remove('bg-light-primary', 'dark:bg-dark-primary');
+                saveBtn.classList.add('bg-light-success', 'dark:bg-dark-success');
+            } else {
+                saveBtn.classList.add('bg-light-primary', 'dark:bg-dark-primary');
+                saveBtn.classList.remove('bg-light-success', 'dark:bg-dark-success');
+            }
+        }
+
+        const tools = Array.isArray(idea.tools) ? idea.tools : [];
+        let toolsHtml = tools.map(t => `<span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full mr-1 mb-1">${t}</span>`).join('');
+
+        container.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-light-border/50 dark:border-dark-border/50 relative group">
+            <div class="absolute top-4 right-4 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+              <i data-lucide="sparkles" style="width:80px;height:80px;"></i>
+            </div>
+            
+            <div class="relative z-10">
+              <h2 class="text-2xl font-bold text-light-text dark:text-dark-text mb-4 pr-16 leading-tight">${idea.title}</h2>
+              <div class="flex flex-wrap gap-2 mb-4">${toolsHtml}</div>
+              <p class="text-base text-light-textSecondary dark:text-dark-textSecondary leading-relaxed mb-6">${idea.description}</p>
+              
+              <div class="bg-light-bg dark:bg-dark-bg p-4 rounded-xl mb-4">
+                <div class="flex justify-between text-sm mb-2">
+                  <span class="text-light-textSecondary dark:text-dark-textSecondary">Сложность:</span>
+                  <span class="font-semibold text-light-text dark:text-dark-text">${idea.difficulty}</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-light-textSecondary dark:text-dark-textSecondary">Бюджет:</span>
+                  <span class="font-semibold text-light-text dark:text-dark-text">${idea.budget}</span>
+                </div>
+              </div>
+              
+              <button id="open-detail-btn" class="w-full py-3 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                <span>Подробнее</span>
+              </button>
+            </div>
+          </div>
+        `;
+        lucide.createIcons();
+        document.getElementById('open-detail-btn').onclick = () => renderIdeaDetailModal(idea);
+      }
+
+
+      function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-light-success dark:bg-dark-success text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all';
+        notification.innerText = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.opacity = '0';
+          setTimeout(() => notification.remove(), 300);
+        }, 2000);
+      }
+      
+
+      function showShareModal(idea) {
+        const tools = Array.isArray(idea.tools) ? idea.tools : [];
+        const toolsList = tools.join(', ');
+        
+        const shareText = `📌 ${idea.title}
+
+📝 Описание:
+${idea.description}
+
+🛠️ Инструменты: ${toolsList}
+⚙️ Сложность: ${idea.difficulty}
+💰 Бюджет: ${idea.budget}
+
+Создано с помощью AutoIdea`;
+        
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-light-text dark:text-dark-text">Поделиться идеей</h3>
+              <button class="close-share-modal hover:opacity-70">
+                <i data-lucide="x" class="text-light-textSecondary dark:text-dark-textSecondary"></i>
+              </button>
+            </div>
+            
+            <div class="space-y-3">
+              <button class="w-full py-3 px-4 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2" id="copy-idea-btn">
+                <i data-lucide="copy" style="width:18px;height:18px;"></i>
+                <span>Скопировать текст</span>
+              </button>
+              
+              <button class="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2" id="export-pdf-btn">
+                <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+                <span>Экспорт краткой идеи (PDF)</span>
+              </button>
+              
+              <button class="w-full py-3 px-4 bg-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2" id="export-pdf-with-plan-btn">
+                <i data-lucide="file-plus" style="width:18px;height:18px;"></i>
+                <span>Экспорт с планом (PDF)</span>
+              </button>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modal);
+        lucide.createIcons();
+        
+        modal.querySelector('.close-share-modal').onclick = () => modal.remove();
+        modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+        
+        document.getElementById('copy-idea-btn').onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(shareText);
+            showNotification('✅ Текст скопирован в буфер обмена!');
+            modal.remove();
+          } catch (e) {
+            alert('Не удалось скопировать текст: ' + e.message);
+          }
+        };
+        
+        document.getElementById('export-pdf-btn').onclick = () => {
+          exportIdeaToPDF(idea, false);
+          modal.remove();
+        };
+        
+        document.getElementById('export-pdf-with-plan-btn').onclick = async () => {
+          modal.remove();
+          await exportIdeaToPDF(idea, true);
+        };
+      }
+
+      function renderIdeaDetailModal(idea) {
+        const content = dom.detailModalContent;
+        dom.detailModalHeaderTitle.innerText = "Детали Идеи";
+        
+        const tools = Array.isArray(idea.tools) ? idea.tools : [];
+        const toolsHtml = tools.map(t => 
+          `<span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full mr-1 mb-1">${t}</span>`
+        ).join('');
+        
+        content.innerHTML = `
+          <h2 class="text-2xl font-bold mb-4 text-light-text dark:text-dark-text">${idea.title}</h2>
+          <div class="flex flex-wrap mb-4">${toolsHtml}</div>
+          <p class="text-light-textSecondary dark:text-dark-textSecondary mb-6 leading-relaxed">${idea.description}</p>
+          
+          <div class="bg-light-bg dark:bg-dark-bg p-4 rounded-xl mb-4">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-light-textSecondary dark:text-dark-textSecondary">Сложность:</span>
+              <span class="font-semibold text-light-text dark:text-dark-text">${idea.difficulty}</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-light-textSecondary dark:text-dark-textSecondary">Бюджет:</span>
+              <span class="font-semibold text-light-text dark:text-dark-text">${idea.budget}</span>
+            </div>
+          </div>
+          
+          <div class="bg-light-bg dark:bg-dark-bg p-4 rounded-xl mb-4">
+             <h4 class="font-bold text-light-text dark:text-dark-text mb-3 flex items-center gap-2">
+               <i data-lucide="info" style="width:18px;height:18px;"></i>
+               Помощь в реализации
+             </h4>
+             <p class="text-sm text-light-textSecondary dark:text-dark-textSecondary mb-3">
+               Нужна помощь с внедрением? Мы поможем вам реализовать эту идею!
+             </p>
+             <div class="flex flex-col gap-2">
+               <button id="get-consultation-btn" class="w-full py-3 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                 <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+                 💬 Получить консультацию
+               </button>
+               <button id="get-detailed-plan-btn" class="w-full py-3 bg-green-600 dark:bg-green-700 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                 <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+                 📋 Заказать подробный план
+               </button>
+             </div>
+          </div>
+        `;
+        
+        lucide.createIcons();
+        
+        // Обработчики для новых кнопок
+        const getConsultationBtn = document.getElementById('get-consultation-btn');
+        const getDetailedPlanBtn = document.getElementById('get-detailed-plan-btn');
+        
+        if (getConsultationBtn) {
+          getConsultationBtn.onclick = () => contactForImplementation(idea);
+        }
+        
+        if (getDetailedPlanBtn) {
+          getDetailedPlanBtn.onclick = () => showContactModal(idea);
+        }
+        
+        openModal(dom.ideaDetailModal);
+      }
+      
+      // Функция для быстрой консультации через Telegram
+      function contactForImplementation(idea) {
+        // Показываем модальное окно с выбором способа связи
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-light-border dark:border-dark-border p-4 flex justify-between items-center">
+              <h3 class="text-xl font-bold text-light-text dark:text-dark-text">Свяжитесь с нами</h3>
+              <button onclick="this.closest('.fixed').remove()" class="text-light-textSecondary dark:text-dark-textSecondary hover:text-light-text dark:hover:text-dark-text">
+                <i data-lucide="x" style="width:24px;height:24px;"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-light-textSecondary dark:text-dark-textSecondary mb-4">
+                Выберите удобный способ связи для консультации по идее: <strong>"${idea.title}"</strong>
+              </p>
+              <div class="flex flex-col gap-3">
+                <a href="https://t.me/it_pro_kg?text=${encodeURIComponent(`Здравствуйте! Интересует реализация идеи: "${idea.title}"\n\nРоль: ${state.role}\nСфера: ${state.sphere}\nБюджет: ${state.budget}`)}" 
+                   target="_blank" 
+                   class="flex items-center gap-3 p-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">
+                  <i data-lucide="send" style="width:24px;height:24px;"></i>
+                  <div class="flex-1 text-left">
+                    <div class="font-semibold">Telegram</div>
+                    <div class="text-sm opacity-90">@it_pro_kg</div>
+                  </div>
+                </a>
+                
+                <a href="https://wa.me/996555910352?text=${encodeURIComponent(`Здравствуйте! Интересует реализация идеи: "${idea.title}"\n\nРоль: ${state.role}\nСфера: ${state.sphere}\nБюджет: ${state.budget}`)}" 
+                   target="_blank" 
+                   class="flex items-center gap-3 p-4 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors">
+                  <i data-lucide="message-circle" style="width:24px;height:24px;"></i>
+                  <div class="flex-1 text-left">
+                    <div class="font-semibold">WhatsApp</div>
+                    <div class="text-sm opacity-90">+996 555 91 03 52</div>
+                  </div>
+                </a>
+                
+                <a href="https://www.instagram.com/smart.flow.kg" 
+                   target="_blank" 
+                   class="flex items-center gap-3 p-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg transition-colors">
+                  <i data-lucide="instagram" style="width:24px;height:24px;"></i>
+                  <div class="flex-1 text-left">
+                    <div class="font-semibold">Instagram</div>
+                    <div class="text-sm opacity-90">@smart.flow.kg</div>
+                  </div>
+                </a>
+                
+                <a href="tel:+996555910352" 
+                   class="flex items-center gap-3 p-4 bg-gray-700 hover:bg-gray-800 text-white rounded-lg transition-colors">
+                  <i data-lucide="phone" style="width:24px;height:24px;"></i>
+                  <div class="flex-1 text-left">
+                    <div class="font-semibold">Телефон</div>
+                    <div class="text-sm opacity-90">+996 555 91 03 52</div>
+                  </div>
+                </a>
+                
+                <a href="mailto:demidovich.dm@gmail.com?subject=${encodeURIComponent(`Консультация: ${idea.title}`)}&body=${encodeURIComponent(`Здравствуйте!\n\nИнтересует реализация идеи: "${idea.title}"\n\nМои данные:\nРоль: ${state.role}\nСфера: ${state.sphere}\nБюджет: ${state.budget}`)}" 
+                   class="flex items-center gap-3 p-4 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors">
+                  <i data-lucide="mail" style="width:24px;height:24px;"></i>
+                  <div class="flex-1 text-left">
+                    <div class="font-semibold">Email</div>
+                    <div class="text-sm opacity-90">demidovich.dm@gmail.com</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modal);
+        lucide.createIcons();
+      }
+      
+      // Функция для показа модального окна с формой контактов
+      function showContactModal(idea) {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-light-border dark:border-dark-border p-4 flex justify-between items-center">
+              <h3 class="text-xl font-bold text-light-text dark:text-dark-text">Получить подробный план</h3>
+              <button onclick="this.closest('.fixed').remove()" class="text-light-textSecondary dark:text-dark-textSecondary hover:text-light-text dark:hover:text-dark-text">
+                <i data-lucide="x" style="width:24px;height:24px;"></i>
+              </button>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-light-textSecondary dark:text-dark-textSecondary mb-4">
+                Оставьте свои контактные данные, и мы подготовим для вас детальный план реализации идеи <strong>"${idea.title}"</strong> с учетом специфики вашего бизнеса.
+              </p>
+              <form id="contactForm" class="flex flex-col gap-4">
+                <div>
+                  <label class="block mb-2 text-sm font-medium text-light-text dark:text-dark-text">Ваше имя *</label>
+                  <input type="text" id="contactName" required class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg text-light-text dark:text-dark-text focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary outline-none" placeholder="Иван Иванов">
+                </div>
+                <div>
+                  <label class="block mb-2 text-sm font-medium text-light-text dark:text-dark-text">Telegram username *</label>
+                  <input type="text" id="contactTelegram" required class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg text-light-text dark:text-dark-text focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary outline-none" placeholder="@username">
+                </div>
+                <div>
+                  <label class="block mb-2 text-sm font-medium text-light-text dark:text-dark-text">Email (опционально)</label>
+                  <input type="email" id="contactEmail" class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg text-light-text dark:text-dark-text focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary outline-none" placeholder="email@example.com">
+                </div>
+                <div>
+                  <label class="block mb-2 text-sm font-medium text-light-text dark:text-dark-text">Комментарий (опционально)</label>
+                  <textarea id="contactComment" rows="3" class="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border rounded-lg text-light-text dark:text-dark-text focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary outline-none resize-none" placeholder="Дополнительная информация..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-semibold hover:opacity-90 transition-opacity mt-2">
+                  📤 Отправить заявку
+                </button>
+              </form>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modal);
+        lucide.createIcons();
+        
+        // Обработчик отправки формы
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const contactData = {
+            name: document.getElementById('contactName').value,
+            telegram: document.getElementById('contactTelegram').value,
+            email: document.getElementById('contactEmail').value,
+            comment: document.getElementById('contactComment').value,
+            idea: idea,
+            formData: state,
+            timestamp: new Date().toISOString()
+          };
+          
+          // Отправляем контактные данные в Telegram
+          await sendContactDataToTelegram(contactData);
+          
+          // Показываем сообщение об успехе
+          modal.innerHTML = `
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
+              <div class="text-6xl mb-4">✅</div>
+              <h3 class="text-2xl font-bold text-light-text dark:text-dark-text mb-3">Заявка отправлена!</h3>
+              <p class="text-light-textSecondary dark:text-dark-textSecondary mb-6">
+                Мы свяжемся с вами в ближайшее время для обсуждения деталей.
+              </p>
+              <button onclick="this.closest('.fixed').remove()" class="px-6 py-3 bg-light-primary dark:bg-dark-primary text-white rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                Закрыть
+              </button>
+            </div>
+          `;
+          
+          // Автоматически закрываем через 3 секунды
+          setTimeout(() => modal.remove(), 3000);
+        });
+      }
+      
+      // Функция отправки контактных данных в Telegram
+      async function sendContactDataToTelegram(contactData) {
+        const BOT_TOKEN = "7722973835:AAHxR459EC5PlQANwEGzaIcY-ZLLyr_NEWA";
+        const CHAT_ID = "1306863122";
+        
+        if (BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || CHAT_ID === "YOUR_CHAT_ID_HERE") {
+          console.warn("Telegram bot не настроен для отправки контактных данных.");
+          return;
+        }
+        
+        const message = `
+🔥 ЗАЯВКА НА ПОДРОБНЫЙ ПЛАН!
+
+👤 Имя: ${contactData.name}
+📱 Telegram: ${contactData.telegram}
+📧 Email: ${contactData.email || 'Не указан'}
+
+💡 Интересующая идея:
+"${contactData.idea.title}"
+
+📝 Комментарий:
+${contactData.comment || 'Не указан'}
+
+━━━━━━━━━━━━━━━━━━━━
+📊 Данные из формы:
+👤 Роль: ${contactData.formData.role}
+🏢 Сфера: ${contactData.formData.sphere}
+👥 Размер команды: ${contactData.formData.teamSize}
+💻 Технический уровень: ${contactData.formData.techLevel}
+💰 Бюджет: ${contactData.formData.budget}
+
+⏰ Дата: ${new Date(contactData.timestamp).toLocaleString('ru-RU')}
+        `.trim();
+        
+        try {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: message,
+              parse_mode: 'HTML'
+            })
+          });
+          console.log("Контактные данные успешно отправлены в Telegram");
+        } catch (e) {
+          console.error("Ошибка отправки контактных данных в Telegram:", e);
+        }
+      }
+
+      function initApp() {
+        // Map JS camelCase variable names to HTML kebab-case IDs
+        const idMap = {
+          formView: 'form-view',
+          loadingView: 'loading-view',
+          resultsView: 'results-view',
+          contentCard: 'content-card',
+          generateButton: 'generate-button',
+          clearButton: 'clear-button',
+          validationError: 'validation-error',
+          apiError: 'api-error',
+          loadingContext: 'loading-context',
+          singleSelectModal: 'single-select-modal',
+          singleSelectTitle: 'single-select-title',
+          singleSelectOptions: 'single-select-options',
+          multiSelectModal: 'multi-select-modal',
+          multiSelectTitle: 'multi-select-title',
+          multiSelectOptions: 'multi-select-options',
+          ideaDetailModal: 'idea-detail-modal',
+          detailModalHeaderTitle: 'detail-modal-header-title',
+          detailModalContent: 'detail-modal-content',
+          ideaCardContainer: 'idea-card-container',
+          resultsControls: 'results-controls',
+          resultsCloseButton: 'results-close-button',
+          resultsSaveButton: 'results-save-button',
+          resultsNextButton: 'results-next-button'
+        };
+        
+        // Populate dom object safely
+        Object.keys(idMap).forEach(key => {
+          dom[key] = document.getElementById(idMap[key]);
+        });
+        
+        dom.pickers = {};
+        ['role', 'sphere', 'teamSize', 'techLevel', 'budget', 'problems', 'channels', 'tools'].forEach(k => dom.pickers[k] = document.getElementById(`picker-${k}`));
+        dom.tags = { problems: document.getElementById('tags-problems'), channels: document.getElementById('tags-channels'), tools: document.getElementById('tags-tools') };
+
+        Object.keys(dom.pickers).forEach(key => {
+           if (dom.pickers[key]) {
+               const isMulti = ['problems', 'channels', 'tools'].includes(key);
+               dom.pickers[key].onclick = () => isMulti ? openMultiSelectModal(key) : openSingleSelectModal(key);
+           }
+        });
+
+        if (dom.generateButton) dom.generateButton.onclick = handleGenerateIdeas;
+        if (dom.clearButton) dom.clearButton.onclick = clearForm;
+        
+        const singleSelectClose = document.getElementById('single-select-close');
+        if (singleSelectClose) singleSelectClose.onclick = () => closeModal(dom.singleSelectModal);
+
+        const multiSelectCancel = document.getElementById('multi-select-cancel');
+        if (multiSelectCancel) multiSelectCancel.onclick = () => closeModal(dom.multiSelectModal);
+
+        const detailModalClose = document.getElementById('detail-modal-close');
+        if (detailModalClose) detailModalClose.onclick = () => closeModal(dom.ideaDetailModal);
+        
+        const detailModalShare = document.getElementById('detail-modal-share');
+        if (detailModalShare) {
+          detailModalShare.onclick = () => {
+            const idea = generatedIdeas[currentIndex];
+            if (idea) showShareModal(idea);
+          };
+        }
+        
+        const multiSelectSave = document.getElementById('multi-select-save');
+        if (multiSelectSave) {
+            multiSelectSave.onclick = () => {
+               state[modalState.key] = modalState.tempSelection;
+               updateFormPickers();
+               updateTagList(modalState.key);
+               validateForm();
+               closeModal(dom.multiSelectModal);
+            };
+        }
+
+        if (dom.resultsCloseButton) dom.resultsCloseButton.onclick = () => { showView('form'); clearForm(); };
+        if (dom.resultsNextButton) dom.resultsNextButton.onclick = () => { currentIndex++; renderResults(); };
+        if (dom.resultsSaveButton) dom.resultsSaveButton.onclick = () => {
+            const idea = generatedIdeas[currentIndex];
+            const isSaved = savedIdeas.some(i => i.id === idea.id);
+            if (isSaved) {
+                savedIdeas = savedIdeas.filter(i => i.id !== idea.id);
+                showNotification('Идея удалена из сохранённых');
+            } else {
+                savedIdeas.push(idea);
+                showNotification('✨ Идея сохранена!');
+            }
+            try { localStorage.setItem('saved_ideas', JSON.stringify(savedIdeas)); } catch(e){}
+            renderResults(); // Перерисовать, чтобы обновить кнопку
+        };
+        
+        // Загрузка сохраненных
+        try { const s = localStorage.getItem('saved_ideas'); if(s) savedIdeas = JSON.parse(s); } catch(e){}
+
+        lucide.createIcons();
+      }
+
+      function setupContactTypeButtons() {
+        const contactInput = document.getElementById('user-contact');
+        const phoneBtn = document.getElementById('contact-type-phone');
+        const whatsappBtn = document.getElementById('contact-type-whatsapp');
+        const telegramBtn = document.getElementById('contact-type-telegram');
+        
+        const buttons = [phoneBtn, whatsappBtn, telegramBtn];
+        
+        // Обработчик для кнопок выбора типа
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Убираем активный класс у всех кнопок
+            buttons.forEach(b => {
+              b.classList.remove('bg-light-primary', 'dark:bg-dark-primary', 'text-white', 'border-light-primary', 'dark:border-dark-primary');
+              b.classList.add('text-light-text', 'dark:text-dark-text');
+            });
+            
+            // Добавляем активный класс выбранной кнопке
+            btn.classList.add('bg-light-primary', 'dark:bg-dark-primary', 'text-white', 'border-light-primary', 'dark:border-dark-primary');
+            btn.classList.remove('text-light-text', 'dark:text-dark-text');
+            
+            // Активируем поле ввода с подсказкой
+            contactInput.disabled = false;
+            
+            if (btn.id === 'contact-type-phone') {
+              state.contactType = 'phone';
+              contactInput.placeholder = 'Например: +996 555 910 352';
+              contactInput.type = 'tel';
+            } else if (btn.id === 'contact-type-whatsapp') {
+              state.contactType = 'whatsapp';
+              contactInput.placeholder = 'Например: +996 555 910 352';
+              contactInput.type = 'tel';
+            } else if (btn.id === 'contact-type-telegram') {
+              state.contactType = 'telegram';
+              contactInput.placeholder = 'Например: @username';
+              contactInput.type = 'text';
+            }
+            
+            contactInput.focus();
+          });
+        });
+        
+        // Обработчик изменения контакта
+        contactInput.addEventListener('input', (e) => {
+          state.contact = e.target.value.trim() || null;
+        });
+      }
+      
+      function setupNewIdeaButton() {
+        const newIdeaBtn = document.getElementById('new-idea-button');
+        if (newIdeaBtn) {
+          newIdeaBtn.addEventListener('click', () => {
+            // Сбрасываем состояние
+            state = { role: null, sphere: null, problems: [], teamSize: null, channels: [], tools: [], techLevel: null, budget: null, contactType: null, contact: null };
+            generatedIdeas = [];
+            currentIndex = 0;
+            
+            // Возвращаемся к форме
+            showView('form');
+            
+            // Прокручиваем страницу наверх
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      }
+      
+      window.addEventListener('load', () => {
+        initApp();
+        setupContactTypeButtons();
+        setupNewIdeaButton();
+      });
+    </script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AutoIdea",
+      "alternateName": "Генератор идей автоматизации от smartflow.kg",
+      "url": "https://smartflow.kg/autoidea.html",
+      "description": "Бесплатный генератор персонализированных идей для автоматизации бизнес-процессов в Кыргызстане. n8n, Make, Telegram и другие инструменты от экспертов smartflow.kg",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KGS"
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "smartflow.kg",
+        "url": "https://smartflow.kg/",
+        "telephone": "+996555910352",
+        "email": "demidovich.dm@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "KG",
+          "addressLocality": "Бишкек"
+        }
+      },
+      "featureList": [
+        "Генерация персонализированных идей автоматизации",
+        "Поддержка n8n, Make, Telegram",
+        "Без регистрации",
+        "Бесплатное использование",
+        "Интеграция с CRM системами",
+        "Консультация от экспертов",
+        "Локализация для бизнеса в Кыргызстане"
+      ],
+      "inLanguage": "ru-RU",
+      "availableInCountry": "KG"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "smartflow.kg",
+        "item": "https://smartflow.kg/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Генератор идей автоматизации",
+        "item": "https://smartflow.kg/autoidea.html"
+      }]
+    }
+    </script>
+    
+    <!-- Компактный футер -->
+    <footer class="mt-12 py-6 border-t border-light-border/30 dark:border-dark-border/30">
+      <div class="w-full max-w-4xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+          <div class="flex items-center gap-2">
+            <img src="images/logo.png" alt="smartflow.kg" style="height: 20px;">
+            <span class="text-light-textSecondary dark:text-dark-textSecondary">&copy; 2025 smartflow.kg</span>
+          </div>
+          
+          <div class="flex flex-wrap items-center justify-center gap-4 text-light-textSecondary dark:text-dark-textSecondary">
+            <a href="tel:+996555910352" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+              📱 +996 555 91 03 52
+            </a>
+            <a href="https://t.me/it_pro_kg" target="_blank" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+              ✈️ Telegram
+            </a>
+            <a href="https://wa.me/996555910352" target="_blank" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+              💚 WhatsApp
+            </a>
+          </div>
+          
+          <a href="/privacy-policy.html" class="text-light-textSecondary dark:text-dark-textSecondary hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+            Политика конфиденциальности
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
