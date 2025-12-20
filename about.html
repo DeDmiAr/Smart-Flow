@@ -64,13 +64,15 @@
         body footer {
             padding: 20px 0;
         }
-        .header {
+        .resume-header {
             background: url('images/3.png') center / cover no-repeat; /* Using 3.png as background */
             color: var(--primary-color);
             padding: 5px; /* Very compact padding */
             display: flex;
             align-items: flex-end; /* Align items to the bottom */
             gap: 25px; /* Adjusted gap */
+            position: relative;
+            z-index: 1;
         }
         .profile-photo {
             width: 220px; /* Slightly larger */
@@ -291,7 +293,7 @@
 
         @media (max-width: 768px) {
             body { padding: 0; }
-            .header {
+            .resume-header {
                 flex-direction: column;
                 text-align: center;
                 align-items: center; /* Center items horizontally in column layout */
@@ -322,7 +324,7 @@
     <!-- Header from main site -->
     <header>
         <div class="container">
-            <div class="logo"><a href="/"><img src="images/logo.png" alt="SMART flow logo">smartflow.kg</a></div>
+            <div class="logo"><a href="/"><img src="images/logo.png" alt="SMART flow logo"><span class="logo-text">smartflow.kg</span></a></div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="/#problems">Проблемы</a></li>
@@ -346,14 +348,14 @@
 
     <div class="resume-wrapper">
         <div class="about-container">
-            <header class="header">
+            <div class="resume-header">
             <img src="images/2.jpg" alt="RPA-инженер Демидович Дмитрий - специалист по автоматизации бизнес-процессов в Бишкеке" class="profile-photo">
             <div class="header-info">
                 <h1>Демидович Дмитрий</h1>
                 <h2>Инженер по роботизированной автоматизации процессов (RPA)</h2>
                 <p class="header-tagline">Автоматизирую бизнес-процессы и внедряю RPA-решения для компаний в Кыргызстане</p>
             </div>
-        </header>
+        </div>
 
         <div class="resume-contacts">
             <a href="tel:+996555910352" class="contact-item">+996 555 91-03-52</a>
@@ -507,7 +509,7 @@
     <!-- Footer from main site -->
     <footer>
         <div class="container">
-            <div class="logo"><img src="images/logo.png" alt="SMART flow logo">smartflow.kg</div>
+            <div class="logo"><img src="images/logo.png" alt="SMART flow logo"><span class="logo-text">smartflow.kg</span></div>
             <div class="contacts">
                 <p>Телефон: +996 555 91 03 52</p>
                 <p>Email: demidovich.dm@gmail.com</p>

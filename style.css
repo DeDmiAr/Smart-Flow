@@ -40,7 +40,7 @@ body {
 header {
     background: rgba(15, 15, 26, 0.8);
     backdrop-filter: blur(10px);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -54,15 +54,29 @@ header .container {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #C084FC;
-    text-shadow: 0 0 10px var(--primary-color);
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-.logo a, .logo a:hover {
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
     color: inherit;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0EC1FF;
+    white-space: nowrap;
 }
 
 nav ul {
@@ -492,6 +506,9 @@ footer .container {
 
 footer .logo {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 footer .contacts {
@@ -508,9 +525,9 @@ footer a:hover {
 }
 
 .logo img {
-    height: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
+    height: 60px;
+    width: auto;
+    display: block;
 }
 
 .hamburger {
@@ -519,6 +536,8 @@ footer a:hover {
     padding: 15px;
     background: transparent;
     border: none;
+    z-index: 1001;
+    position: relative;
 }
 
 .hamburger-box {
@@ -536,11 +555,12 @@ footer a:hover {
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 30px;
-    height: 3px;
-    background-color: #fff;
+    height: 4px;
+    background-color: #0EC1FF;
     border-radius: 4px;
     position: absolute;
     transition: transform 0.2s ease-in-out;
+    box-shadow: 0 0 8px rgba(14, 193, 255, 0.6);
 }
 
 .hamburger-inner::before, .hamburger-inner::after {
