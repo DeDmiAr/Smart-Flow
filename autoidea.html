@@ -934,36 +934,10 @@ ${formData.tools.map(t => `• ${t}`).join('\n')}
       }, 2000);
     }
 
-    async function generatePlanForPDF(idea) {
-      try {
-        const response = await fetch('/.netlify/functions/generate-plan', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ idea: idea })
-        });
-
-        if (!response.ok) throw new Error('API Error');
-
-        const data = await response.json();
-        if (!data.text) throw new Error("Пустой ответ от сервера");
-
-        return data.text.replace(/<[^>]*>/g, '');
-      } catch (e) {
-        console.error(e);
-        return "1. Анализ текущих процессов\n2. Настройка инструментов\n3. Тестирование\n4. Внедрение\n5. Оптимизация";
-      }
-    }
-
-    async function exportIdeaToPDF(idea, includePlan = false) {
+    async function exportIdeaToPDF(idea) {
       showNotification('⏳ Создание PDF...');
 
       const tools = Array.isArray(idea.tools) ? idea.tools : [];
-
-      let plan = null;
-      if (includePlan) {
-        showNotification('⏳ Генерация плана внедрения...');
-        plan = await generatePlanForPDF(idea);
-      }
 
       const container = document.createElement('div');
       container.style.cssText = 'position: absolute; left: -9999px; width: 794px; padding: 40px; background: white; font-family: Arial, sans-serif;';
@@ -995,13 +969,6 @@ ${formData.tools.map(t => `• ${t}`).join('\n')}
               <span style="color: #1F2937; font-size: 13px; font-weight: bold;">${idea.budget}</span>
             </div>
           </div>
-          
-          ${plan ? `
-            <div style="page-break-before: always; margin-top: 40px;">
-              <h3 style="color: #1F2937; font-size: 20px; margin-bottom: 15px; font-weight: bold;">План внедрения</h3>
-              <div style="color: #374151; font-size: 14px; line-height: 1.8;">${plan.replace(/\n/g, '<br>')}</div>
-            </div>
-          ` : ''}
           
           <div style="margin-top: 40px; text-align: center; color: #9CA3AF; font-size: 11px;">
             Создано с помощью AutoIdea
@@ -1043,6 +1010,7 @@ ${formData.tools.map(t => `• ${t}`).join('\n')}
         showNotification('✅ PDF успешно создан!');
       } catch (e) {
         console.error(e);
+        alert('Ошибка создания PDF: ' + e.message);
         showNotification('❌ Ошибка создания PDF');
       } finally {
         document.body.removeChild(container);
@@ -1083,12 +1051,7 @@ ${idea.description}
               
               <button class="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2" id="export-pdf-btn">
                 <i data-lucide="file-text" style="width:18px;height:18px;"></i>
-                <span>Экспорт краткой идеи (PDF)</span>
-              </button>
-              
-              <button class="w-full py-3 px-4 bg-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2" id="export-pdf-with-plan-btn">
-                <i data-lucide="file-plus" style="width:18px;height:18px;"></i>
-                <span>Экспорт с планом (PDF)</span>
+                <span>Экспорт идеи (PDF)</span>
               </button>
             </div>
           </div>
@@ -1111,13 +1074,8 @@ ${idea.description}
       };
 
       document.getElementById('export-pdf-btn').onclick = () => {
-        exportIdeaToPDF(idea, false);
+        exportIdeaToPDF(idea);
         modal.remove();
-      };
-
-      document.getElementById('export-pdf-with-plan-btn').onclick = async () => {
-        modal.remove();
-        await exportIdeaToPDF(idea, true);
       };
     }
 
