@@ -56,13 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         message += `\n⏰ Время: ${dateTimeString}`;
 
-        fetch('/.netlify/functions/send-telegram', {
+        const BOT_TOKEN = '8576751344:AAHMNB9Z3UNM7Li69cuclkLb7smM2Qosomg';
+        const CHAT_ID = '1306863122';
+
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                text: message
+                chat_id: CHAT_ID,
+                text: message,
+                parse_mode: 'HTML'
             })
         })
             .then(response => response.json())

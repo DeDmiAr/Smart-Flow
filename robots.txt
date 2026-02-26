@@ -3,4 +3,4 @@ User-agent: *
 Disallow:
 
 # Point to the sitemap
-Sitemap: https://smartflow.kg/sitemap.xml
+Sitemap: https://smart-flow.biz/sitemap.xml
