@@ -35,7 +35,7 @@
 
   <!-- Additional Meta Tags -->
   <meta name="theme-color" content="#8B5CF6" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="format-detection" content="telephone=no" />
 
@@ -921,19 +921,6 @@ ${formData.tools.map(t => `• ${t}`).join('\n')}
       notification.innerText = message;
       document.body.appendChild(notification);
 
-      setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => notification.remove(), 300);
-      }, 2000);
-    }
-
-
-    function showNotification(message) {
-      const notification = document.createElement('div');
-      notification.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 z-[100] bg-gray-800 text-white px-6 py-3 rounded-full shadow-2xl transition-all duration-300 pointer-events-none opacity-0 flex items-center gap-2';
-      notification.style.opacity = '1';
-      notification.innerHTML = `<span>${message}</span>`;
-      document.body.appendChild(notification);
       setTimeout(() => {
         notification.style.opacity = '0';
         setTimeout(() => notification.remove(), 300);
