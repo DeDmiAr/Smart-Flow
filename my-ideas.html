@@ -294,35 +294,21 @@
     }
 
     async function generatePlanForPDF(idea) {
-      const apiKey = "AIzaSyCCNrTE86_9kbXBs9OWIGHSSscZiCW9Qj8";
-
-      if (!apiKey || apiKey === "ВАШ_API_КЛЮЧ_ЗДЕСЬ") {
-        return "1. Анализ текущих процессов\n2. Настройка инструментов\n3. Тестирование\n4. Внедрение\n5. Оптимизация";
-      }
-
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-      const tools = Array.isArray(idea.tools) ? idea.tools : [];
-      const systemPrompt = `Ты 'AutoIdea', бизнес-консультант. Создай пошаговый план внедрения (5-7 шагов). Отвечай ТОЛЬКО текстом, без HTML тегов. Каждый шаг с новой строки, нумерованный. Язык: Русский.`;
-      const userPrompt = `Идея: ${idea.title}. Описание: ${idea.description}. Инструменты: ${tools.join(', ')}.`;
-
       try {
-        const response = await fetch(apiUrl, {
+        const response = await fetch('/.netlify/functions/generate-plan', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
-            systemInstruction: { parts: [{ text: systemPrompt }] },
-          })
+          body: JSON.stringify({ idea: idea })
         });
 
         if (!response.ok) throw new Error('API Error');
 
         const data = await response.json();
-        if (!data.candidates || !data.candidates[0].content.parts[0].text) {
-          throw new Error("Пустой ответ от API");
+        if (!data.text) {
+          throw new Error("Пустой ответ от сервера");
         }
 
-        return data.candidates[0].content.parts[0].text.replace(/<[^>]*>/g, '');
+        return data.text.replace(/<[^>]*>/g, '');
       } catch (e) {
         console.error(e);
         return "1. Анализ текущих процессов\n2. Настройка инструментов\n3. Тестирование\n4. Внедрение\n5. Оптимизация";
