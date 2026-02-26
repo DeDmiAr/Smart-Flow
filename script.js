@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         message += `\n⏰ Время: ${dateTimeString}`;
 
-        const botToken = '7722973835:AAHxR459EC5PlQANwEGzaIcY-ZLLyr_NEWA';
+        const botToken = '8576751344:AAHMNB9Z3UNM7Li69cuclkLb7smM2Qosomg';
         const chatId = '1306863122';
 
         const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
