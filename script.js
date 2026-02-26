@@ -56,34 +56,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         message += `\n⏰ Время: ${dateTimeString}`;
 
-        const botToken = '8576751344:AAHMNB9Z3UNM7Li69cuclkLb7smM2Qosomg';
-        const chatId = '1306863122';
-
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-        fetch(url, {
+        fetch('/.netlify/functions/send-telegram', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                chat_id: chatId,
                 text: message
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                alert('Спасибо! Ваша заявка успешно отправлена.');
-                form.reset();
-            } else {
-                alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Произошла ошибка. Попробуйте еще раз.');
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert('Спасибо! Ваша заявка успешно отправлена.');
+                    form.reset();
+                } else {
+                    alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка. Попробуйте еще раз.');
+            });
     });
 
     const faqQuestions = document.querySelectorAll('.faq-question');
