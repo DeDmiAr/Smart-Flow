@@ -814,6 +814,14 @@ ${idea.description}
 
     // Функция отправки контактных данных в Telegram
     async function sendContactDataToTelegram(contactData) {
+      const BOT_TOKEN = "8576751344:AAHMNB9Z3UNM7Li69cuclkLb7smM2Qosomg";
+      const CHAT_ID = "1306863122";
+
+      if (BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || CHAT_ID === "YOUR_CHAT_ID_HERE") {
+        console.warn("Telegram bot не настроен для отправки контактных данных.");
+        return;
+      }
+
       const message = `
 🔥 ЗАЯВКА НА ПОДРОБНЫЙ ПЛАН (из Моих Идей)!
 
@@ -838,10 +846,14 @@ ${contactData.comment || 'Не указан'}
         `.trim();
 
       try {
-        await fetch('/.netlify/functions/send-telegram', {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: message })
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'HTML'
+          })
         });
         console.log("Контактные данные успешно отправлены в Telegram");
       } catch (e) {
