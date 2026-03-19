@@ -48,10 +48,6 @@
             --cv-border-color: #0f3460;
         }
 
-        body {
-            /* We inherit body background from style.css, but we'll override font for CV inside */
-        }
-
         .resume-wrapper {
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
@@ -137,6 +133,16 @@
 
         .cv-contact-item:hover {
             color: var(--secondary-color);
+        }
+
+        .cv-container section {
+            padding: 0;
+            border: none;
+            margin-bottom: 30px;
+        }
+
+        .cv-container section:last-child {
+            margin-bottom: 0;
         }
 
         .cv-container h3 {
