@@ -30,77 +30,42 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPA-инженер Демидович Дмитрий - Автоматизация бизнес-процессов Бишкек | smartflow.kg</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="RPA-инженер Демидович Дмитрий - автоматизация бизнес-процессов в Бишкеке. Опыт работы с UiPath, Битрикс24, Python. Консультации по внедрению роботизации и оптимизации процессов.">
-    <meta name="keywords"
-        content="RPA инженер, автоматизация процессов, роботизация бизнеса, Битрикс24, UiPath, Бишкек, Кыргызстан, RPA разработчик, оптимизация бизнес-процессов">
-    <meta name="author" content="Демидович Дмитрий">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://smart-flow.biz/about.html">
-    <meta property="og:title" content="RPA-инженер Демидович Дмитрий | Автоматизация бизнес-процессов">
-    <meta property="og:description"
-        content="Специалист по роботизированной автоматизации процессов. Внедрение RPA-решений для оптимизации бизнеса в Кыргызстане.">
-    <meta property="og:image" content="https://smart-flow.biz/images/2.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://smart-flow.biz/about.html">
-    <meta property="twitter:title" content="RPA-инженер Демидович Дмитрий | Автоматизация бизнес-процессов">
-    <meta property="twitter:description"
-        content="Специалист по роботизированной автоматизации процессов. Внедрение RPA-решений для оптимизации бизнеса в Кыргызстане.">
-    <meta property="twitter:image" content="https://smart-flow.biz/images/2.jpg">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://smart-flow.biz/about.html">
-
+    <title>Резюме: Инженер по роботизированной автоматизации процессов (RPA)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         :root {
-            --primary-color: #00A8FF;
-            --secondary-color: #9A17E8;
-            --text-color: #E0E0E0;
-            --bg-color: #050816;
-            --container-bg: rgba(15, 23, 42, 0.8);
-            --border-color: #1E293B;
+            --primary-color: #e0fbfc;
+            --secondary-color: #29d9d5;
+            --text-color: #c5c6c7;
+            --bg-color: #0a192f;
+            --container-bg: #16213e;
+            --border-color: #0f3460;
         }
 
         body {
-            font-family: 'Roboto', 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #050816 0%, #0A2342 100%);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Main wrapper for entire resume page */
-        .resume-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        .about-container {
+        .container {
+            max-width: 900px;
+            width: 100%;
             background-color: var(--container-bg);
             border-radius: 15px;
-            box-shadow: 0 10px 50px rgba(154, 23, 232, 0.15);
+            box-shadow: 0 10px 50px rgba(41, 217, 213, 0.15);
             overflow: hidden;
-            margin: 20px;
         }
 
-        /* Override footer padding for about page */
-        body footer {
-            padding: 20px 0;
-        }
-
-        .resume-header {
+        .header {
             background: url('images/3.png') center / cover no-repeat;
             /* Using 3.png as background */
             color: var(--primary-color);
@@ -111,8 +76,6 @@
             /* Align items to the bottom */
             gap: 25px;
             /* Adjusted gap */
-            position: relative;
-            z-index: 1;
         }
 
         .profile-photo {
@@ -130,36 +93,40 @@
             /* Pushed down */
         }
 
+        .header-info {
+            background: rgba(10, 25, 47, 0.65);
+            padding: 20px 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(41, 217, 213, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
         .header-info h1 {
             margin: 0;
             font-size: 2em;
             /* Made smaller */
             font-weight: 700;
-            color: #ffffff;
+            color: var(--secondary-color);
+            text-shadow: 0 0 12px rgba(41, 217, 213, 0.4);
         }
 
         .header-info h2 {
             margin: 5px 0 0;
             font-size: 1.1em;
             /* Slightly increased for readability */
-            font-weight: 400;
+            font-weight: 700;
             color: #ffffff;
             /* Changed to white for better contrast */
         }
 
-        .header-tagline {
-            margin: 10px 0 0;
-            font-size: 0.95em;
-            font-weight: 400;
-            color: var(--primary-color);
-            font-style: italic;
-        }
-
         .main-content {
-            padding: 10px 40px 20px;
+            padding: 40px;
         }
 
-        .resume-contacts {
+        .contacts {
             display: flex;
             flex-wrap: wrap;
             /* Allow items to wrap */
@@ -167,9 +134,9 @@
             /* Center items */
             gap: 20px;
             /* Add space between items */
-            background-color: transparent;
-            padding: 10px 40px;
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--border-color);
+            padding: 15px 40px;
+            border-bottom: 1px solid #0f3460;
             font-size: 0.9em;
         }
 
@@ -182,83 +149,28 @@
 
         .contact-item:hover {
             color: var(--secondary-color);
-            text-shadow: 0 0 10px rgba(154, 23, 232, 0.5);
         }
 
         h3 {
-            color: #FFFFFF;
+            color: var(--primary-color);
             font-size: 1.5em;
             border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            margin-top: 5px;
-            margin-bottom: 8px;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         .summary p {
             font-size: 1.1em;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: justify;
-            margin: 5px 0;
-        }
-
-        .achievements {
-            margin: 5px 0 10px 0;
-        }
-
-        section {
-            margin-bottom: 15px;
-        }
-
-        section:first-of-type {
-            margin-top: 0;
-        }
-
-        section:last-of-type {
-            margin-bottom: 5px;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .achievement-item {
-            background-color: var(--border-color);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .achievement-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(154, 23, 232, 0.3);
-        }
-
-        .achievement-number {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin-bottom: 5px;
-        }
-
-        .achievement-text {
-            font-size: 0.9em;
-            color: var(--text-color);
-            line-height: 1.4;
         }
 
         .job {
-            margin-bottom: 12px;
+            margin-bottom: 25px;
             padding-left: 25px;
             border-left: 3px solid var(--secondary-color);
             position: relative;
-        }
-
-        .job:last-child {
-            margin-bottom: 0;
         }
 
         .job::before {
@@ -284,13 +196,13 @@
             font-size: 1em;
             font-weight: 500;
             color: var(--secondary-color);
-            margin: 3px 0;
+            margin: 5px 0;
         }
 
         .job-period {
             font-size: 0.9em;
             color: #8892b0;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .job-achievements {
@@ -299,27 +211,18 @@
         }
 
         .job-achievements li {
-            margin-bottom: 5px;
-            line-height: 1.4;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
 
         .skills-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 30px;
         }
 
         h4 {
             color: var(--primary-color);
-            margin: 5px 0;
-        }
-
-        p {
-            margin: 5px 0;
-        }
-
-        ul {
-            margin: 5px 0;
         }
 
         .skills-list {
@@ -330,18 +233,14 @@
         .skills-list li {
             background-color: var(--border-color);
             color: var(--primary-color);
-            padding: 8px 12px;
+            padding: 10px 15px;
             border-radius: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 500;
         }
 
         .education-item {
-            margin-bottom: 8px;
-        }
-
-        .education-item:last-child {
-            margin-bottom: 0;
+            margin-bottom: 15px;
         }
 
         .education-title {
@@ -361,16 +260,12 @@
             line-height: 1.6;
         }
 
-        .footer-section p {
-            margin: 5px 0;
-        }
-
         .contact-button {
             display: inline-block;
             background-color: var(--secondary-color);
-            color: #FFFFFF;
+            color: var(--bg-color);
             padding: 12px 25px;
-            margin-top: 10px;
+            margin-top: 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
@@ -380,8 +275,7 @@
 
         .contact-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(154, 23, 232, 0.4);
-            background-color: #B048FF;
+            box-shadow: 0 5px 15px rgba(41, 217, 213, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -389,7 +283,7 @@
                 padding: 0;
             }
 
-            .resume-header {
+            .header {
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
@@ -416,7 +310,7 @@
                 padding: 30px 25px;
             }
 
-            .resume-contacts {
+            .contacts {
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
@@ -432,289 +326,204 @@
 </head>
 
 <body>
-    <!-- Header from main site -->
-    <header>
-        <div class="container">
-            <div class="logo"><a href="/"><img src="images/logo.png" alt="SMART flow logo"><span
-                        class="logo-text">smartflow.kg</span></a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/#problems">Проблемы</a></li>
-                    <li><a href="/#solution">Решение</a></li>
-                    <li><a href="/#steps">Этапы</a></li>
-                    <li><a href="/#benefits">Выгоды</a></li>
-                    <li><a href="/#cases">Кейсы</a></li>
-                    <li><a href="/#faq">Вопросы</a></li>
-                    <li><a href="/about.html" class="active">О себе</a></li>
-                    <li><a href="/#contact-form">Контакты</a></li>
-                </ul>
-            </nav>
-            <a href="https://t.me/it_pro_kg" class="cta-button" target="_blank">Связаться</a>
-            <button class="hamburger" id="hamburger" aria-label="Меню">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-        </div>
-    </header>
 
-    <div class="resume-wrapper">
-        <div class="about-container">
-            <div class="resume-header">
-                <img src="images/2.jpg"
-                    alt="RPA-инженер Демидович Дмитрий - специалист по автоматизации бизнес-процессов в Бишкеке"
-                    class="profile-photo">
-                <div class="header-info">
-                    <h1>Демидович Дмитрий</h1>
-                    <h2>Инженер по роботизированной автоматизации процессов (RPA)</h2>
-                    <p class="header-tagline">Автоматизирую бизнес-процессы и внедряю RPA-решения для компаний в
-                        Кыргызстане</p>
+    <div class="container">
+        <header class="header">
+            <img src="images/2.jpg" alt="Фото Демидовича Дмитрия" class="profile-photo">
+            <div class="header-info">
+                <h1>Демидович Дмитрий</h1>
+                <h2>HR-Tech Архитектор & Эксперт по интеллектуальной автоматизации</h2>
+                <div style="margin-top: 15px; color: #c5c6c7; font-size: 1.0em; line-height: 1.6; font-weight: 500;">
+                    Проектирую и внедряю экосистемы, где ИИ-агенты и программные роботы забирают на себя рутину,
+                    освобождая до 70% времени вашей команды.
                 </div>
             </div>
+        </header>
 
-            <div class="resume-contacts">
-                <a href="tel:+996555910352" class="contact-item">+996 555 91-03-52</a>
-                <a href="mailto:demidovich.dm@gmail.com" class="contact-item">demidovich.dm@gmail.com</a>
-                <a href="https://smart-flow.biz/" target="_blank" class="contact-item">smart-flow.biz</a>
-            </div>
-
-            <main class="main-content">
-                <section class="summary">
-                    <h3>Обо мне</h3>
-                    <p>
-                        <strong>RPA-инженер с практическим опытом</strong> в анализе, проектировании и внедрении
-                        программных роботов для оптимизации бизнес-процессов. Успешно роботизировал HR-функции с
-                        использованием low-code платформ (Битрикс24) и скриптов.
-                    </p>
-                    <p>
-                        Обладаю аналитическим складом ума, навыками разработки технической документации (PDD) и опытом в
-                        обучении пользователей. Стремлюсь применять свои знания в области ИИ и автоматизации для
-                        разработки эффективных и масштабируемых RPA-решений, которые <strong>сокращают издержки и
-                            повышают эффективность</strong> бизнеса.
-                    </p>
-                </section>
-
-                <section class="achievements">
-                    <h3>Ключевые достижения</h3>
-                    <div class="achievements-grid">
-                        <div class="achievement-item">
-                            <div class="achievement-number">100+</div>
-                            <div class="achievement-text">Автоматизированных процессов</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-number">65%</div>
-                            <div class="achievement-text">Сокращение времени на рутинные задачи</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-number">200+</div>
-                            <div class="achievement-text">Обработанных кандидатов ежемесячно</div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-number">5+</div>
-                            <div class="achievement-text">Лет опыта в автоматизации</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Опыт работы</h3>
-                    <div class="job">
-                        <p class="job-title">Специалист по автоматизации / RPA-разработчик</p>
-                        <p class="job-company">Детская онлайн-школа "Hello World"</p>
-                        <p class="job-period">Январь 2024 — настоящее время</p>
-                        <ul class="job-achievements">
-                            <li>Проанализировал и картировал бизнес-процесс найма для выявления узких мест и
-                                возможностей роботизации.</li>
-                            <li>Разработал и внедрил программного робота на базе Битрикс24 для полной автоматизации
-                                воронки найма, что <strong>сократило время на ручную обработку кандидатов на
-                                    65%</strong> (с 3 часов до 1 часа в день).</li>
-                            <li>Настроил логику робота для обработки откликов, автоматической отправки уведомлений и
-                                перемещения кандидатов по стадиям процесса. <strong>Обрабатывается 200+ кандидатов
-                                    ежемесячно</strong>.</li>
-                            <li>Создал и поддерживал техническую документацию (Process Design Document) по
-                                разработанному RPA-решению для дальнейшего развития и поддержки.</li>
-                        </ul>
-                    </div>
-                    <div class="job">
-                        <p class="job-title">Технический наставник / Разработчик обучающих материалов</p>
-                        <p class="job-company">Детская онлайн-школа "Hello World"</p>
-                        <p class="job-period">Май 2022 — Декабрь 2024</p>
-                        <ul class="job-achievements">
-                            <li>Разработал <strong>15+ технических руководств</strong> и обучающих материалов по
-                                использованию автоматизированных систем для новых сотрудников.</li>
-                            <li>Получил практический опыт в Python при создании учебных проектов, что стало основой для
-                                перехода в RPA-разработку.</li>
-                            <li>Проводил онбординг и обучение <strong>50+ сотрудников</strong> работе с новыми
-                                программными продуктами и внутренними CRM-системами.</li>
-                        </ul>
-                    </div>
-                    <div class="job">
-                        <p class="job-title">Бизнес-аналитик / Консультант по автоматизации (Фриланс)</p>
-                        <p class="job-company">Различные интернет-проекты</p>
-                        <p class="job-period">Сентябрь 2016 — Май 2022</p>
-                        <ul class="job-achievements">
-                            <li>Проводил аудит бизнес-процессов для <strong>20+ компаний</strong> малого и среднего
-                                бизнеса с целью выявления возможностей для автоматизации.</li>
-                            <li>Разрабатывал подробные технические задания (ТЗ) и PDD для автоматизации процессов в CRM
-                                и других системах.</li>
-                            <li>Консультировал клиентов по вопросам оптимизации и автоматизации процессов продаж,
-                                документооборота и взаимодействия с клиентами, что <strong>повысило эффективность на
-                                    40-50%</strong>.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Ключевые навыки</h3>
-                    <div class="skills-section">
-                        <div>
-                            <h4>Профессиональные (Hard Skills)</h4>
-                            <ul class="skills-list">
-                                <li>Анализ бизнес-процессов (BPMN)</li>
-                                <li>RPA (UiPath, Blue Prism - основы)</li>
-                                <li>Low-code автоматизация (Битрикс24)</li>
-                                <li>Python (для скриптов и автоматизации)</li>
-                                <li>Создание тех. документации (PDD, SDD)</li>
-                                <li>Тестирование и отладка роботов</li>
-                                <li>API и интеграции</li>
-                                <li>Искусственный интеллект (концепции)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Личностные (Soft Skills)</h4>
-                            <ul class="skills-list">
-                                <li>Аналитическое мышление</li>
-                                <li>Решение проблем</li>
-                                <li>Внимание к деталям</li>
-                                <li>Структурный подход</li>
-                                <li>Коммуникабельность</li>
-                                <li>Обучаемость и адаптивность</li>
-                                <li>Управление проектами</li>
-                                <li>Ответственность</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Образование и ключевые курсы</h3>
-                    <div class="education-item">
-                        <p class="education-title">Нейроинжениринг Битрикс 24 и n8n</p>
-                        <p class="education-source">Online-курс, 2024</p>
-                    </div>
-                    <div class="education-item">
-                        <p class="education-title">ИИ и Нейросети / Нейро-воркшоп</p>
-                        <p class="education-source">Нейробуст, 2023</p>
-                    </div>
-                    <div class="education-item">
-                        <p class="education-title">Автоматизация бизнес-процессов</p>
-                        <p class="education-source">Online-курс, 2023</p>
-                    </div>
-                    <div class="education-item">
-                        <p class="education-title">Административная технология Р. Л. Хаббарда</p>
-                        <p class="education-source">ATM Group, 2021</p>
-                    </div>
-                    <div class="education-item">
-                        <p class="education-title">Технология найма «Перформия»</p>
-                        <p class="education-source">Перформия, 2021</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Портфолио и связь</h3>
-                    <div class="footer-section">
-                        <p>Примеры моих работ и кейсы по автоматизации доступны на моем сайте: <a
-                                href="https://smart-flow.biz/" target="_blank"
-                                style="color: var(--secondary-color);">smart-flow.biz</a></p>
-                        <p>Телефон: +996 555 91 03 52 (WhatsApp, Telegram)</p>
-                        <p>Email: demidovich.dm@gmail.com</p>
-                        <a href="https://t.me/it_pro_kg" target="_blank" class="contact-button">Связаться в Telegram</a>
-                    </div>
-                </section>
-
-            </main>
+        <div class="contacts">
+            <a href="tel:+996555910352" class="contact-item">+996 555 91-03-52</a>
+            <a href="mailto:demidovich.dm@gmail.com" class="contact-item">demidovich.dm@gmail.com</a>
+            <a href="https://smart-flow.biz/" target="_blank" class="contact-item">smart-flow.biz</a>
         </div>
+
+        <main class="main-content">
+            <section class="summary">
+                <h3>Профессиональное резюме</h3>
+                <p>
+                    Я специализируюсь на стыке двух миров: глубокого понимания человеческого капитала и передовых
+                    технологий автоматизации. Моя цель — избавить бизнес от «углеродной рутины», переложив цикличные
+                    задачи на плечи ИИ-агентов и программных роботов. Обладая 9-летним опытом в аналитике и управлении,
+                    я не просто внедряю софт — я проектирую экосистемы, в которых найм, онбординг и продажи работают на
+                    автопилоте.
+                </p>
+            </section>
+
+            <section>
+                <h3>Кейсы и Опыт</h3>
+                <div class="job">
+                    <p class="job-title">Кейс: Управление талантами (Hello World)</p>
+                    <p class="job-company">Роль: Senior HR-Tech & RPA Developer</p>
+                    <ul class="job-achievements" style="margin-top: 10px;">
+                        <li><strong>Задача:</strong> Спроектировать и внедрить автоматизированную воронку найма в
+                            Битрикс24.</li>
+                        <li><strong>Результат:</strong> Отсутствие потерянных кандидатов, автоматизация уведомлений,
+                            сокращение
+                            времени найма в 3 раза.</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <p class="job-title">Кейс: Разработка Fullstack-решения для ритейла (Мобильная CRM)</p>
+                    <p class="job-company">Роль: Founder SmartFlow.kg / Lead Fullstack Developer & Integration Architect
+                    </p>
+                    <ul class="job-achievements" style="margin-top: 10px; margin-bottom: 15px;">
+                        <li><strong>Задача:</strong> Автоматизировать работу полевых сотрудников и синхронизировать
+                            складские остатки в реальном времени.</li>
+                        <li><strong>Решение:</strong> Проектирование и разработка «с нуля» мобильного приложения
+                            «Торговый Агент» (стек: React Native + Firebase/Firestore). Реализована сложная логика Front
+                            + Back + DB.</li>
+                        <li><strong>Результат:</strong> Формирование отчетности в 1 клик, полное исключение ошибок в
+                            остатках, рост эффективности отдела продаж на 40%.</li>
+                    </ul>
+                    <a href="https://smart-flow.biz" target="_blank"
+                        style="color: var(--secondary-color); text-decoration: none; font-weight: 500; font-size: 0.95em; padding-left: 20px; display: inline-block;">➔
+                        Подробное описание архитектуры и других кейсов SmartFlow.kg</a>
+                </div>
+                <div class="job">
+                    <p class="job-title">Кейс: n8n / AI Интеграции</p>
+                    <p class="job-company">Роль: AI Automation Expert</p>
+                    <ul class="job-achievements" style="margin-top: 10px;">
+                        <li><strong>Задача:</strong> Создание кастомных сценариев автоматизации и внедрение
+                            LLM-ассистентов.</li>
+                        <li><strong>Результат:</strong> Ускорение обработки входящих заявок в 5 раз, поддержка 24/7.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Ключевые компетенции</h3>
+                <div class="skills-section"
+                    style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+                    
+                    <!-- 1. Технологический стек -->
+                    <div style="background-color: var(--border-color); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <h4 style="margin: 0 0 15px 0; font-size: 1.25em; color: var(--primary-color);">1. Технологический стек (Hard Skills & AI)</h4>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Интеллектуальная автоматизация (RPA):</strong> Проектирование и развертывание сложных сценариев в <strong style="color: var(--secondary-color);">n8n</strong> и <strong style="color: var(--secondary-color);">Make</strong>. Глубокая настройка роботов и бизнес-процессов в <strong style="color: var(--secondary-color);">Bitrix24</strong>.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Интеграция Искусственного Интеллекта:</strong> Внедрение LLM (<strong style="color: var(--secondary-color);">Gemini 3 Pro</strong>, <strong style="color: var(--secondary-color);">GPT-4</strong>) в корпоративные контуры. Проектирование ИИ-агентов для обработки данных, анализа документов и поддержки клиентов.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Fullstack & No-code разработка:</strong> Создание веб и мобильных приложений «под ключ» с использованием <strong style="color: var(--secondary-color);">React Native</strong>, <strong style="color: var(--secondary-color);">Firebase</strong>, <strong style="color: var(--secondary-color);">Lovable.dev</strong> и <strong style="color: var(--secondary-color);">Rork</strong>. Работа с <strong style="color: var(--secondary-color);">API</strong>, <strong style="color: var(--secondary-color);">Webhooks</strong> и базыми данных.
+                        </div>
+                        <div style="line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Prompt Engineering:</strong> Профессиональное управление контекстом нейросетей для получения высокоточных бизнес-результатов без галлюцинаций.
+                        </div>
+                    </div>
+
+                    <!-- 2. Системная бизнес-архитектура -->
+                    <div style="background-color: var(--border-color); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <h4 style="margin: 0 0 15px 0; font-size: 1.25em; color: var(--primary-color);">2. Системная бизнес-архитектура</h4>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Аудит и реинжиниринг процессов:</strong> Анализ «как есть» (As-Is) и проектирование «как должно быть» (To-Be) в нотации <strong style="color: var(--secondary-color);">BPMN</strong>. Поиск и устранение операционных потерь.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Техническое проектирование (PDD/SDD):</strong> Разработка детальной архитектурной документации, которая позволяет масштабировать автоматизацию без потери управляемости.
+                        </div>
+                        <div style="line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Управление проектами:</strong> Опыт ведения сложных IT-внедрений от идеи до запуска и обучения персонала. Фокус на измеримый результат (ROI и экономия ФОТ).
+                        </div>
+                    </div>
+
+                    <!-- 3. HR-Tech & Управление талантами -->
+                    <div style="background-color: var(--border-color); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <h4 style="margin: 0 0 15px 0; font-size: 1.25em; color: var(--primary-color);">3. HR-Tech & Управление талантами</h4>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Цифровой рекрутинг:</strong> Построение полностью автоматизированных воронок найма, где 80% рутины (скрининг, анкетирование, уведомления) выполняют роботы.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Методология обучения (L&D):</strong> Разработка адаптивных систем онбординга и корпоративных курсов. Опыт создания обучающих материалов, которые реально усваиваются сотрудниками.
+                        </div>
+                        <div style="line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Оценка и развитие (Performance):</strong> Внедрение систем KPI и контроля качества работы персонала на основе данных из <strong style="color: var(--secondary-color);">CRM</strong> и <strong style="color: var(--secondary-color);">ERP</strong> систем.
+                        </div>
+                    </div>
+
+                    <!-- 4. Лидерство и личная эффективность -->
+                    <div style="background-color: var(--border-color); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <h4 style="margin: 0 0 15px 0; font-size: 1.25em; color: var(--primary-color);">4. Лидерство и личная эффективность (Soft Skills)</h4>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Публичная экспертиза:</strong> Навык управления вниманием аудитории до 7 000 человек. Свободная презентация сложных технологических решений перед советом директоров.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Системное мышление:</strong> Способность видеть бизнес-процесс как алгоритм. Органическая потребность оптимизировать всё, что работает неэффективно.
+                        </div>
+                        <div style="margin-bottom: 12px; line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Высокая скорость адаптации:</strong> Темп освоения новых технологий — от выхода новой модели ИИ до её внедрения в рабочую среду за считанные дни.
+                        </div>
+                        <div style="line-height: 1.6; color: var(--text-color);">
+                            <strong style="color: var(--primary-color);">Эмоциональный интеллект (EQ):</strong> 9-летний опыт в HR позволяет мне эффективно сглаживать конфликты, проводить сложные переговоры и строить сильные команды в IT-среде.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Образование и ключевые курсы</h3>
+                <div class="education-item">
+                    <p class="education-title">Нейроинжениринг Битрикс 24 и n8n</p>
+                    <p class="education-source">Online-курс, 2024</p>
+                </div>
+                <div class="education-item">
+                    <p class="education-title">ИИ и Нейросети / Нейро-воркшоп</p>
+                    <p class="education-source">Нейробуст, 2023</p>
+                </div>
+                <div class="education-item">
+                    <p class="education-title">Автоматизация бизнес-процессов</p>
+                    <p class="education-source">Online-курс, 2023</p>
+                </div>
+                <div class="education-item">
+                    <p class="education-title">Административная технология Р. Л. Хаббарда</p>
+                    <p class="education-source">ATM Group, 2021</p>
+                </div>
+                <div class="education-item">
+                    <p class="education-title">Технология найма «Перформия»</p>
+                    <p class="education-source">Перформия, 2021</p>
+                </div>
+            </section>
+
+            <section style="margin: 40px 0;">
+                <div
+                    style="background-color: var(--border-color); border-left: 4px solid var(--secondary-color); padding: 25px 30px; font-style: italic; color: #c5c6c7; font-size: 1.05em; line-height: 1.6; border-radius: 0 8px 8px 0; position: relative;">
+                    <p style="margin-top: 0;">«Я верю, что будущее бизнеса — в синергии человеческого потенциала и
+                        технологий. Мой путь начался с глубокого погружения в HR и психологию найма, что позволило мне
+                        увидеть главную проблему современных компаний: колоссальные потери времени на однотипные
+                        операции.</p>
+                    <p style="margin-bottom: 0;">Сегодня я решаю эту проблему как системный архитектор. Я не просто
+                        настраиваю софт — я пересобираю бизнес-логику. Мой опыт позволяет мне говорить на одном языке и
+                        с HR-директором, и с разработчиком, создавая решения, которые действительно работают и приносят
+                        измеримую прибыль.»</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Сотрудничество и контакты</h3>
+                <div class="footer-section"
+                    style="background-color: var(--border-color); padding: 30px; border-radius: 10px; text-align: center; margin-top: 20px;">
+                    <p
+                        style="font-size: 1.25em; color: var(--primary-color); font-weight: bold; margin-bottom: 10px; font-style: normal;">
+                        Готовы перевести свой бизнес на автопилот?</p>
+                    <p style="font-size: 1.1em; color: var(--text-color); margin-bottom: 30px; font-style: normal;">
+                        Давайте обсудим, какие процессы в вашей компании можно роботизировать уже завтра.</p>
+                    <a href="https://t.me/it_pro_kg" target="_blank" class="contact-button"
+                        style="margin-top: 0; padding: 15px 35px; font-size: 1.1em;">Связаться со мной</a>
+                </div>
+            </section>
+
+        </main>
     </div>
 
-    <!-- Floating Action Button -->
-    <div class="fab">
-        <a href="autoidea.html">💡 идеи для автоматизации</a>
-    </div>
-
-    <!-- Footer from main site -->
-    <footer>
-        <div class="container">
-            <div class="logo"><img src="images/logo.png" alt="SMART flow logo"><span
-                    class="logo-text">smartflow.kg</span></div>
-            <div class="contacts">
-                <p>Телефон: +996 555 91 03 52</p>
-                <p>Email: demidovich.dm@gmail.com</p>
-                <p>Мессенджеры: <a href="https://wa.me/996555910352">WhatsApp</a>, <a
-                        href="https://t.me/it_pro_kg">Telegram</a>, <a href="https://www.instagram.com/smart.flow.kg/"
-                        target="_blank">Instagram</a></p>
-            </div>
-            <div class="legal">
-                <p>&copy; 2025 smartflow.kg Все права защищены.</p>
-                <a href="privacy-policy.html">Политика конфиденциальности</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Schema.org structured data for Person -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Демидович Дмитрий",
-      "jobTitle": "Инженер по роботизированной автоматизации процессов (RPA)",
-      "url": "https://smart-flow.biz/about.html",
-      "image": "https://smart-flow.biz/images/2.jpg",
-      "email": "demidovich.dm@gmail.com",
-      "telephone": "+996555910352",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Бишкек",
-        "addressCountry": "KG"
-      },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "smartflow.kg",
-        "url": "https://smart-flow.biz"
-      },
-      "sameAs": [
-        "https://t.me/it_pro_kg",
-        "https://wa.me/996555910352",
-        "https://smart-flow.biz/",
-        "https://www.instagram.com/smart.flow.kg/"
-      ],
-      "knowsAbout": [
-        "RPA (Robotic Process Automation)",
-        "UiPath",
-        "Blue Prism",
-        "Битрикс24",
-        "Python",
-        "Автоматизация бизнес-процессов",
-        "BPMN",
-        "API интеграции",
-        "Low-code платформы",
-        "Искусственный интеллект"
-      ],
-      "alumniOf": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Нейроинжениринг Битрикс 24 и n8n",
-          "educationalLevel": "Online-курс"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "ИИ и Нейросети / Нейро-воркшоп",
-          "credentialCategory": "Нейробуст"
-        }
-      ]
-    }
-    </script>
-
-    <script src="script.js" defer></script>
 </body>
 
 </html>
