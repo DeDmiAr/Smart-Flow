@@ -22,6 +22,15 @@
     --case-pink-bg: rgba(255, 99, 71, 0.1);
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.8;
@@ -662,6 +671,9 @@ footer a:hover {
         max-width: 80%;
     }
 
+    .problems ul,
+    .solution .services,
+    .benefits-list,
     .cases .case-studies {
         grid-template-columns: 1fr;
     }
